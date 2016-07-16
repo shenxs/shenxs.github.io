@@ -4,9 +4,17 @@
   <title>Mr.λ @ Here: Mr.λ @ Here</title>
   <description>Mr.λ @ Here: Mr.λ @ Here</description>
   <link>http://shenxs.github.io/index.html</link>
-  <lastBuildDate>Sat, 16 Jul 2016 15:56:02 UT</lastBuildDate>
-  <pubDate>Sat, 16 Jul 2016 15:56:02 UT</pubDate>
+  <lastBuildDate>Sat, 16 Jul 2016 16:01:10 UT</lastBuildDate>
+  <pubDate>Sat, 16 Jul 2016 16:01:10 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>test about url</title>
+   <link>http://shenxs.github.io/blog/2016/07/17/test-about-url/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid>urn:http-shenxs-github-io:-blog-2016-07-17-test-about-url</guid>
+   <pubDate>Sat, 16 Jul 2016 16:01:10 UT</pubDate>
+   <description>&lt;html&gt;
+&lt;p&gt;Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&amp;hellip;&lt;/p&gt;
+&lt;!-- more--&gt;&lt;/html&gt;</description></item>
   <item>
    <title>测试中文字符</title>
    <link>http://shenxs.github.io/blog/2016/07/16/测试中文字符/?utm_source=all&amp;utm_medium=RSS</link>

@@ -4,7 +4,18 @@
  <link rel="self" href="http://shenxs.github.io/feeds/all.atom.xml" />
  <link href="http://shenxs.github.io/index.html" />
  <id>urn:http-shenxs-github-io:-index-html</id>
- <updated>2016-07-16T15:56:02Z</updated>
+ <updated>2016-07-16T16:01:10Z</updated>
+ <entry>
+  <title type="text">test about url</title>
+  <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/test-about-url/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-shenxs-github-io:-blog-2016-07-17-test-about-url</id>
+  <published>2016-07-16T16:01:10Z</published>
+  <updated>2016-07-16T16:01:10Z</updated>
+  <author>
+   <name>Mr.λ</name></author>
+  <content type="html">&lt;html&gt;
+&lt;p&gt;Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&amp;hellip;&lt;/p&gt;
+&lt;!-- more--&gt;&lt;/html&gt;</content></entry>
  <entry>
   <title type="text">测试中文字符</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/16/测试中文字符/?utm_source=all&amp;utm_medium=Atom" />
