@@ -2,7 +2,7 @@
     Date: 2016-07-17T00:13:17
     Tags: vim,斜体,注释
 
-![vim-italic](../../img/vim-italic.png)
+![vim-italic](/img/vim-italic.png)
 
 <!-- more -->
 
