@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>My Awesome Blog: My Awesome Blog</title>
-  <description>My Awesome Blog: My Awesome Blog</description>
-  <link>http://www.example.com/index.html</link>
-  <lastBuildDate>Sat, 31 Dec 2011 16:00:00 UT</lastBuildDate>
-  <pubDate>Sat, 31 Dec 2011 16:00:00 UT</pubDate>
+  <title>Mr.λ @ Here: Mr.λ @ Here</title>
+  <description>Mr.λ @ Here: Mr.λ @ Here</description>
+  <link>http://shenxs.github.io/index.html</link>
+  <lastBuildDate>Sat, 16 Jul 2016 15:56:02 UT</lastBuildDate>
+  <pubDate>Sat, 16 Jul 2016 15:56:02 UT</pubDate>
   <ttl>1800</ttl>
   <item>
+   <title>测试中文字符</title>
+   <link>http://shenxs.github.io/blog/2016/07/16/测试中文字符/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid>urn:http-shenxs-github-io:-blog-2016-07-16-测试中文字符</guid>
+   <pubDate>Sat, 16 Jul 2016 15:56:02 UT</pubDate>
+   <description>&lt;html&gt;
+&lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;
+&lt;!-- more--&gt;&lt;/html&gt;</description></item>
+  <item>
    <title>A 2012 blog post</title>
-   <link>http://www.example.com/blog/2012/01/01/a-2012-blog-post/?utm_source=all&amp;utm_medium=RSS</link>
-   <guid>urn:http-www-example-com:-blog-2012-01-01-a-2012-blog-post</guid>
+   <link>http://shenxs.github.io/blog/2012/01/01/a-2012-blog-post/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid>urn:http-shenxs-github-io:-blog-2012-01-01-a-2012-blog-post</guid>
    <pubDate>Sat, 31 Dec 2011 16:00:00 UT</pubDate>
    <description>&lt;html&gt;
 &lt;p&gt;Here is an example blog post.&lt;/p&gt;

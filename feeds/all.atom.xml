@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">My Awesome Blog: My Awesome Blog</title>
- <link rel="self" href="http://www.example.com/feeds/all.atom.xml" />
- <link href="http://www.example.com/index.html" />
- <id>urn:http-www-example-com:-index-html</id>
- <updated>2011-12-31T16:00:00Z</updated>
+ <title type="text">Mr.λ @ Here: Mr.λ @ Here</title>
+ <link rel="self" href="http://shenxs.github.io/feeds/all.atom.xml" />
+ <link href="http://shenxs.github.io/index.html" />
+ <id>urn:http-shenxs-github-io:-index-html</id>
+ <updated>2016-07-16T15:56:02Z</updated>
+ <entry>
+  <title type="text">测试中文字符</title>
+  <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/16/测试中文字符/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-shenxs-github-io:-blog-2016-07-16-测试中文字符</id>
+  <published>2016-07-16T15:56:02Z</published>
+  <updated>2016-07-16T15:56:02Z</updated>
+  <author>
+   <name>Mr.λ</name></author>
+  <content type="html">&lt;html&gt;
+&lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;
+&lt;!-- more--&gt;&lt;/html&gt;</content></entry>
  <entry>
   <title type="text">A 2012 blog post</title>
-  <link rel="alternate" href="http://www.example.com/blog/2012/01/01/a-2012-blog-post/?utm_source=all&amp;utm_medium=Atom" />
-  <id>urn:http-www-example-com:-blog-2012-01-01-a-2012-blog-post</id>
+  <link rel="alternate" href="http://shenxs.github.io/blog/2012/01/01/a-2012-blog-post/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-shenxs-github-io:-blog-2012-01-01-a-2012-blog-post</id>
   <published>2011-12-31T16:00:00Z</published>
   <updated>2011-12-31T16:00:00Z</updated>
   <author>
-   <name>The Unknown Author</name></author>
+   <name>Mr.λ</name></author>
   <content type="html">&lt;html&gt;
 &lt;p&gt;Here is an example blog post.&lt;/p&gt;
 
