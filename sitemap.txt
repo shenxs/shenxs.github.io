@@ -1,4 +1,5 @@
 http://shenxs.github.io/blog/2016/07/17/test-about-url/
+http://shenxs.github.io/blog/2016/07/17/flatland/
 http://shenxs.github.io/blog/2016/07/17/vim-italic/
 http://shenxs.github.io/blog/2016/07/16/测试中文字符/
 http://shenxs.github.io/blog/2012/01/01/a-2012-blog-post/
