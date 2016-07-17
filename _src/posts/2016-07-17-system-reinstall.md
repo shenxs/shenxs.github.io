@@ -1,6 +1,6 @@
     Title: system reinstall
     Date: 2016-07-17T16:53:10
-    Tags: 重装 双系统 ubuntu windows10 ssd 混合 硬盘
+    Tags: 重装,双系统,ubuntu,windows10,ssd,混合硬盘
 
 ##   基本情况和要求介绍
 - 双硬盘,一块128G的ssd,一块500G的机械硬盘

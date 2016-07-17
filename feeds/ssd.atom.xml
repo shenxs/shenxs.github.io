@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ @ Here: Posts tagged '重装 双系统 ubuntu windows10 ssd 混合 硬盘'</title>
- <link rel="self" href="http://shenxs.github.io/feeds/重装-双系统-ubuntu-windows10-ssd-混合-硬盘.atom.xml" />
- <link href="http://shenxs.github.io/tags/重装-双系统-ubuntu-windows10-ssd-混合-硬盘.html" />
- <id>urn:http-shenxs-github-io:-tags-重装-双系统-ubuntu-windows10-ssd-混合-硬盘-html</id>
+ <title type="text">Mr.λ @ Here: Posts tagged 'ssd'</title>
+ <link rel="self" href="http://shenxs.github.io/feeds/ssd.atom.xml" />
+ <link href="http://shenxs.github.io/tags/ssd.html" />
+ <id>urn:http-shenxs-github-io:-tags-ssd-html</id>
  <updated>2016-07-17T08:53:10Z</updated>
  <entry>
   <title type="text">system reinstall</title>
-  <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/system-reinstall/?utm_source=重装-双系统-ubuntu-windows10-ssd-混合-硬盘&amp;utm_medium=Atom" />
+  <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/system-reinstall/?utm_source=ssd&amp;utm_medium=Atom" />
   <id>urn:http-shenxs-github-io:-blog-2016-07-17-system-reinstall</id>
   <published>2016-07-17T08:53:10Z</published>
   <updated>2016-07-17T08:53:10Z</updated>
