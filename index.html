@@ -1,256 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
 
-        <meta charset="utf-8">
-        <title>Mr.λ @ Here</title>
-        <meta name="description" content="Mr.λ @ Here">
-        <meta name="author"      content="Mr.λ">
-        <meta name="keywords"    content="ssd, windows10, ubuntu, vim, 体会;, tag with spaces, all, 注释, 双系统, github test, 斜体, foo, 重装, 读记, bar, 平面国, racket, scheme, baz, sicp, 混合硬盘, frog">
-        <meta name="viewport"    content="width=device-width, initial-scale=1.0">
-        <link rel="icon"      href="/favicon.ico">
-        <link rel="canonical" href="http://shenxs.github.io/index.html">
-
-
-        <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/css/pygments.css">
-        <link rel="stylesheet" type="text/css" href="/css/scribble.css">
-        <link rel="stylesheet" type="text/css" href="/css/custom.css">
-        <!-- Feeds -->
-        <link rel="alternate" type="application/atom+xml"
-                              href="/feeds/all.atom.xml" title="Atom Feed">
-        <link rel="alternate" type="application/rss+xml"
-                              href="/feeds/all.rss.xml" title="RSS Feed">
-        <!-- JS -->
-        <script type="text/javascript">
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-xxxxx', 'auto');
-ga('send', 'pageview');
-        </script>
-    </head>
-    <body>
-        <!-- A standard Twitter Bootstrap nav bar -->
-        <header class="navbar navbar-default navbar-inverse"
-                role="banner">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button"
-                            class="navbar-toggle"
-                            data-toggle="collapse"
-                            data-target=".our-nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="/index.html" class="navbar-brand">My Blog Brand</a>
-                </div>
-                <div class="collapse navbar-collapse our-nav-collapse"
-                     role="navigation">
-                    <ul class="nav navbar-nav">
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Tags <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/index.html">All Posts</a></li>
-
-                                <li><a href="/tags/bar.html">bar</a></li>
-
-                                <li><a href="/tags/baz.html">baz</a></li>
-
-                                <li><a href="/tags/foo.html">foo</a></li>
-
-                                <li><a href="/tags/frog.html">frog</a></li>
-
-                                <li><a href="/tags/github-test.html">github test</a></li>
-
-                                <li><a href="/tags/racket.html">racket</a></li>
-
-                                <li><a href="/tags/scheme.html">scheme</a></li>
-
-                                <li><a href="/tags/sicp.html">sicp</a></li>
-
-                                <li><a href="/tags/ssd.html">ssd</a></li>
-
-                                <li><a href="/tags/tag-with-spaces.html">tag with spaces</a></li>
-
-                                <li><a href="/tags/ubuntu.html">ubuntu</a></li>
-
-                                <li><a href="/tags/vim.html">vim</a></li>
-
-                                <li><a href="/tags/windows10.html">windows10</a></li>
-
-                                <li><a href="/tags/体会.html">体会;</a></li>
-
-                                <li><a href="/tags/双系统.html">双系统</a></li>
-
-                                <li><a href="/tags/平面国.html">平面国</a></li>
-
-                                <li><a href="/tags/斜体.html">斜体</a></li>
-
-                                <li><a href="/tags/注释.html">注释</a></li>
-
-                                <li><a href="/tags/混合硬盘.html">混合硬盘</a></li>
-
-                                <li><a href="/tags/读记.html">读记</a></li>
-
-                                <li><a href="/tags/重装.html">重装</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="/About.html">About</a>
-                        </li> 
-                        <li><a href="/feeds/all.atom.xml">Atom</a></li>
-                        <li><a href="/feeds/all.rss.xml">RSS</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
-        <div class="container">
-            <div class="row">
-
-                <!-- Main column -->
-                <div id="content" class="col-md-12">
-
-                    <h1>Welcome</h1>
-                    <p>Here is some text that only goes on the home page,
-                    because <code>@uri-path</code> is
-                    <code>/index.html</code>.</p> 
+    <meta charset="utf-8">
+    <title>Mr.λ @ Here</title>
+    <meta name="description" content="Mr.λ @ Here">
+    <meta name="author"      content="Mr.λ">
+    <meta name="keywords"    content="ssd, ubuntu, foo, FFI, 注释, bar, 平面国, racket, scheme, baz, 混合硬盘, 斜体, windows10, 体会;, all, 双系统, github test, 重装, tag with spaces, Racket, vim, sicp, 读记, frog">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon"      href="/favicon.ico">
+    <link rel="canonical" href="http://shenxs.github.io/index.html">
 
 
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml"
+          href="/feeds/all.atom.xml" title="Atom Feed">
+    <link rel="alternate" type="application/rss+xml"
+          href="/feeds/all.rss.xml" title="RSS Feed">
+    <!-- JS -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-                    <article>
-                        <header>
-                            <h2><a href='/blog/2016/07/17/the-difference-between-data-and-function/'>The difference between data and function</a></h2>
-                            <p class='date-and-tags'>
-                            <time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/sicp.html">sicp</a>, <a href="/tags/scheme.html">scheme</a>, <a href="/tags/racket.html">racket</a>, <a href="/tags/体会.html">体会;</a></span></p>
-                        </header>
-
-                        <footer>
-                            <a href='/blog/2016/07/17/the-difference-between-data-and-function/'>&hellip; more &hellip;</a>
-                        </footer>
-                    </article>
-                    <article>
-                        <header>
-                            <h2><a href='/blog/2016/07/17/system-reinstall/'>system reinstall</a></h2>
-                            <p class='date-and-tags'>
-                            <time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/重装.html">重装</a>, <a href="/tags/双系统.html">双系统</a>, <a href="/tags/ubuntu.html">ubuntu</a>, <a href="/tags/windows10.html">windows10</a>, <a href="/tags/ssd.html">ssd</a>, <a href="/tags/混合硬盘.html">混合硬盘</a></span></p>
-                        </header>
-
-                        <h2 id="基本情况和要求介绍">基本情况和要求介绍</h2>
-
-                        <ul>
-                            <li>双硬盘,一块128G的ssd,一块500G的机械硬盘</li>
-                            <li>8G内存</li>
-                            <li>N卡加intel集显</li>
-                            <li>最后要求双系统,Ubuntu14.04LTS + Windows10</li></ul>
-                        <footer>
-                            <a href='/blog/2016/07/17/system-reinstall/'>&hellip; more &hellip;</a>
-                        </footer>
-                    </article>
-                    <article>
-                        <header>
-                            <h2><a href='/blog/2016/07/17/flatland/'>Flatland</a></h2>
-                            <p class='date-and-tags'>
-                            <time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/平面国.html">平面国</a>, <a href="/tags/读记.html">读记</a></span></p>
-                        </header>
-
-                        <div class="figure"><img src="/img/FlatLand.jpg" alt="a" />
-                            <p class="caption">a</p></div>
-
-                        <p><em>有关平面国</em></p>
-                        <footer>
-                            <a href='/blog/2016/07/17/flatland/'>&hellip; more &hellip;</a>
-                        </footer>
-                    </article>
-                    <article>
-                        <header>
-                            <h2><a href='/blog/2016/07/17/vim-italic/'>vim italic</a></h2>
-                            <p class='date-and-tags'>
-                            <time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/vim.html">vim</a>, <a href="/tags/斜体.html">斜体</a>, <a href="/tags/注释.html">注释</a></span></p>
-                        </header>
-
-                        <div class="figure"><img src="/img/vim-italic.png" alt="vim-italic" />
-                            <p class="caption">vim-italic</p></div>
-                        <footer>
-                            <a href='/blog/2016/07/17/vim-italic/'>&hellip; more &hellip;</a>
-                        </footer>
-                    </article>
-                    <article>
-                        <header>
-                            <h2><a href='/blog/2016/07/17/test-about-url/'>test about url</a></h2>
-                            <p class='date-and-tags'>
-                            <time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/github-test.html">github test</a></span></p>
-                        </header>
-
-                        <p>Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&hellip;</p>
-                        <footer>
-                            <a href='/blog/2016/07/17/test-about-url/'>&hellip; more &hellip;</a>
-                        </footer>
-                    </article>
-                    <article>
-                        <header>
-                            <h2><a href='/blog/2016/07/16/测试中文字符/'>测试中文字符</a></h2>
-                            <p class='date-and-tags'>
-                            <time datetime="2016-07-16" pubdate="true">2016-07-16</time> :: <span class="tags"><a href="/tags/frog.html">frog</a></span></p>
-                        </header>
-
-                        <p><em>Replace this with your post text. Add one or more comma-separated Tags above. The special tag <code>DRAFT</code> will prevent the post from being published.</em></p>
-                        <footer>
-                            <a href='/blog/2016/07/16/测试中文字符/'>&hellip; more &hellip;</a>
-                        </footer>
-                    </article>
-                    <article>
-                        <header>
-                            <h2><a href='/blog/2012/01/01/a-2012-blog-post/'>A 2012 blog post</a></h2>
-                            <p class='date-and-tags'>
-                            <time datetime="2012-01-01" pubdate="true">2012-01-01</time> :: <span class="tags"><a href="/tags/foo.html">foo</a>, <a href="/tags/bar.html">bar</a>, <a href="/tags/tag-with-spaces.html">tag with spaces</a>, <a href="/tags/baz.html">baz</a></span></p>
-                        </header>
-
-                        <p>Here is an example blog post.</p>
-
-                        <p>Everything after this paragraph &ldquo;after the break&rdquo;. On index pages and Atom feeds, it will become &ldquo;Continue reading&hellip;&rdquo;, if you configure them to include only the summary &ldquo;blurb&rdquo; before the break.</p>
-
-                        <pre><code>some code</code></pre>
-                        <footer>
-                            <a href='/blog/2012/01/01/a-2012-blog-post/'>&hellip; more &hellip;</a>
-                        </footer>
-                    </article>
-                </div>
-            </div>
-            <footer>
-                <hr />
-                <p><a href="https://twitter.com/racketlang"
-                      class="twitter-follow-button"
-                      data-show-count="false"
-                      data-lang="en">
-                    "Follow RacketLang"
-                </a>
-                <script type="text/javascript">
-                    !function(d,s,id){
-                        var js,fjs=d.getElementsByTagName(s)[0];
-                        if(!d.getElementById(id)){
-                            js=d.createElement(s);
-                            js.id=id;
-                            js.src="//platform.twitter.com/widgets.js";
-                            fjs.parentNode.insertBefore(js,fjs);
-                        }
-                    }(document,"script","twitter-wjs");
-                </script></p>
-                <p>Site generated
-                by <a href="https://github.com/greghendershott/frog">Frog</a>,
-                the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
-                <p>Using <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap</a>.</p>
-                <p><em>Your legal notice here</em>.</p>
-            </footer>
+      ga('create', 'UA-xxxxx', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <!-- A standard Twitter Bootstrap nav bar -->
+    <header class="navbar navbar-default navbar-inverse"
+            role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".our-nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/index.html" class="navbar-brand">My Blog Brand</a>
         </div>
-        <!-- </body> JS -->
-        <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
-        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-        </body>
+        <div class="collapse navbar-collapse our-nav-collapse"
+             role="navigation">
+          <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Tags <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/index.html">All Posts</a></li>
+
+<li><a href="/tags/bar.html">bar</a></li>
+
+<li><a href="/tags/baz.html">baz</a></li>
+
+<li><a href="/tags/FFI.html">FFI</a></li>
+
+<li><a href="/tags/foo.html">foo</a></li>
+
+<li><a href="/tags/frog.html">frog</a></li>
+
+<li><a href="/tags/github-test.html">github test</a></li>
+
+<li><a href="/tags/Racket.html">Racket</a></li>
+
+<li><a href="/tags/racket.html">racket</a></li>
+
+<li><a href="/tags/scheme.html">scheme</a></li>
+
+<li><a href="/tags/sicp.html">sicp</a></li>
+
+<li><a href="/tags/ssd.html">ssd</a></li>
+
+<li><a href="/tags/tag-with-spaces.html">tag with spaces</a></li>
+
+<li><a href="/tags/ubuntu.html">ubuntu</a></li>
+
+<li><a href="/tags/vim.html">vim</a></li>
+
+<li><a href="/tags/windows10.html">windows10</a></li>
+
+<li><a href="/tags/体会.html">体会;</a></li>
+
+<li><a href="/tags/双系统.html">双系统</a></li>
+
+<li><a href="/tags/平面国.html">平面国</a></li>
+
+<li><a href="/tags/斜体.html">斜体</a></li>
+
+<li><a href="/tags/注释.html">注释</a></li>
+
+<li><a href="/tags/混合硬盘.html">混合硬盘</a></li>
+
+<li><a href="/tags/读记.html">读记</a></li>
+
+<li><a href="/tags/重装.html">重装</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/About.html">About</a>
+            </li> 
+            <li><a href="/feeds/all.atom.xml">Atom</a></li>
+            <li><a href="/feeds/all.rss.xml">RSS</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+
+        <!-- Main column -->
+        <div id="content" class="col-md-12">
+
+          <h1>Welcome</h1>
+          <p>Here is some text that only goes on the home page,
+            because <code>@uri-path</code> is
+            <code>/index.html</code>.</p> 
+
+
+
+          <article>
+  <header>
+    <h2><a href='/blog/2016/07/18/racket-ffi/'>Racket ffi</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-18" pubdate="true">2016-07-18</time> :: <span class="tags"><a href="/tags/Racket.html">Racket</a>, <a href="/tags/FFI.html">FFI</a>, <a href="/tags/.html"></a></span></p>
+  </header>
+
+<p> _今天花了些时间了解了Racket的FFI用法,只是初步的了解.所谓的*FFI*是指 <em>foreign fuction interface</em>.ok FFI让racket程序可以调用基于c的api而不用去写一行的c.</p>
+  <footer>
+    <a href='/blog/2016/07/18/racket-ffi/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2016/07/17/the-difference-between-data-and-function/'>The difference between data and function</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/sicp.html">sicp</a>, <a href="/tags/scheme.html">scheme</a>, <a href="/tags/racket.html">racket</a>, <a href="/tags/体会.html">体会;</a></span></p>
+  </header>
+
+  <footer>
+    <a href='/blog/2016/07/17/the-difference-between-data-and-function/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2016/07/17/system-reinstall/'>system reinstall</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/重装.html">重装</a>, <a href="/tags/双系统.html">双系统</a>, <a href="/tags/ubuntu.html">ubuntu</a>, <a href="/tags/windows10.html">windows10</a>, <a href="/tags/ssd.html">ssd</a>, <a href="/tags/混合硬盘.html">混合硬盘</a></span></p>
+  </header>
+
+<h2 id="基本情况和要求介绍">基本情况和要求介绍</h2>
+
+<ul>
+ <li>双硬盘,一块128G的ssd,一块500G的机械硬盘</li>
+ <li>8G内存</li>
+ <li>N卡加intel集显</li>
+ <li>最后要求双系统,Ubuntu14.04LTS + Windows10</li></ul>
+  <footer>
+    <a href='/blog/2016/07/17/system-reinstall/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2016/07/17/flatland/'>Flatland</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/平面国.html">平面国</a>, <a href="/tags/读记.html">读记</a></span></p>
+  </header>
+
+<div class="figure"><img src="/img/FlatLand.jpg" alt="a" />
+ <p class="caption">a</p></div>
+
+<p><em>有关平面国</em></p>
+  <footer>
+    <a href='/blog/2016/07/17/flatland/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2016/07/17/vim-italic/'>vim italic</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/vim.html">vim</a>, <a href="/tags/斜体.html">斜体</a>, <a href="/tags/注释.html">注释</a></span></p>
+  </header>
+
+<div class="figure"><img src="/img/vim-italic.png" alt="vim-italic" />
+ <p class="caption">vim-italic</p></div>
+  <footer>
+    <a href='/blog/2016/07/17/vim-italic/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2016/07/17/test-about-url/'>test about url</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/github-test.html">github test</a></span></p>
+  </header>
+
+<p>Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&hellip;</p>
+  <footer>
+    <a href='/blog/2016/07/17/test-about-url/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2016/07/16/测试中文字符/'>测试中文字符</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2016-07-16" pubdate="true">2016-07-16</time> :: <span class="tags"><a href="/tags/frog.html">frog</a></span></p>
+  </header>
+
+<p><em>Replace this with your post text. Add one or more comma-separated Tags above. The special tag <code>DRAFT</code> will prevent the post from being published.</em></p>
+  <footer>
+    <a href='/blog/2016/07/16/测试中文字符/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+<article>
+  <header>
+    <h2><a href='/blog/2012/01/01/a-2012-blog-post/'>A 2012 blog post</a></h2>
+    <p class='date-and-tags'>
+<time datetime="2012-01-01" pubdate="true">2012-01-01</time> :: <span class="tags"><a href="/tags/foo.html">foo</a>, <a href="/tags/bar.html">bar</a>, <a href="/tags/tag-with-spaces.html">tag with spaces</a>, <a href="/tags/baz.html">baz</a></span></p>
+  </header>
+
+<p>Here is an example blog post.</p>
+
+<p>Everything after this paragraph &ldquo;after the break&rdquo;. On index pages and Atom feeds, it will become &ldquo;Continue reading&hellip;&rdquo;, if you configure them to include only the summary &ldquo;blurb&rdquo; before the break.</p>
+
+<pre><code>some code</code></pre>
+  <footer>
+    <a href='/blog/2012/01/01/a-2012-blog-post/'>&hellip; more &hellip;</a>
+  </footer>
+</article>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        <p><a href="https://twitter.com/racketlang"
+              class="twitter-follow-button"
+              data-show-count="false"
+              data-lang="en">
+             "Follow RacketLang"
+           </a>
+           <script type="text/javascript">
+             !function(d,s,id){
+                 var js,fjs=d.getElementsByTagName(s)[0];
+                 if(!d.getElementById(id)){
+                     js=d.createElement(s);
+                     js.id=id;
+                     js.src="//platform.twitter.com/widgets.js";
+                     fjs.parentNode.insertBefore(js,fjs);
+                 }
+             }(document,"script","twitter-wjs");
+           </script></p>
+        <p>Site generated
+        by <a href="https://github.com/greghendershott/frog">Frog</a>,
+        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+        <p>Using <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap</a>.</p>
+        <p><em>Your legal notice here</em>.</p>
+      </footer>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  </body>
 </html>

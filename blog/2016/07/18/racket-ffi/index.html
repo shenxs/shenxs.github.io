@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Racket ffi</title>
+    <meta name="description" content="_今天花了些时间了解了Racket的FFI用法,只是初步的了解.所谓的*FFI*是指 _foreign fuction interface_.ok FFI让racket程序可以调用基于c的api而不用去写一行的c....">
+    <meta name="author"      content="Mr.λ">
+    <meta name="keywords"    content="Racket, FFI, ">
+    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+    <link rel="icon"      href="/favicon.ico">
+    <link rel="canonical" href="http://shenxs.github.io/blog/2016/07/18/racket-ffi/">
+    <link rel="next" href="/blog/2016/07/17/the-difference-between-data-and-function/">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <!-- Feeds -->
+    <link rel="alternate" type="application/atom+xml"
+          href="/feeds/all.atom.xml" title="Atom Feed">
+    <link rel="alternate" type="application/rss+xml"
+          href="/feeds/all.rss.xml" title="RSS Feed">
+    <!-- JS -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-xxxxx', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <!-- A standard Twitter Bootstrap nav bar -->
+    <header class="navbar navbar-default navbar-inverse"
+            role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button"
+                  class="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target=".our-nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/index.html" class="navbar-brand">My Blog Brand</a>
+        </div>
+        <div class="collapse navbar-collapse our-nav-collapse"
+             role="navigation">
+          <ul class="nav navbar-nav">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Tags <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/index.html">All Posts</a></li>
+
+<li><a href="/tags/bar.html">bar</a></li>
+
+<li><a href="/tags/baz.html">baz</a></li>
+
+<li><a href="/tags/FFI.html">FFI</a></li>
+
+<li><a href="/tags/foo.html">foo</a></li>
+
+<li><a href="/tags/frog.html">frog</a></li>
+
+<li><a href="/tags/github-test.html">github test</a></li>
+
+<li><a href="/tags/Racket.html">Racket</a></li>
+
+<li><a href="/tags/racket.html">racket</a></li>
+
+<li><a href="/tags/scheme.html">scheme</a></li>
+
+<li><a href="/tags/sicp.html">sicp</a></li>
+
+<li><a href="/tags/ssd.html">ssd</a></li>
+
+<li><a href="/tags/tag-with-spaces.html">tag with spaces</a></li>
+
+<li><a href="/tags/ubuntu.html">ubuntu</a></li>
+
+<li><a href="/tags/vim.html">vim</a></li>
+
+<li><a href="/tags/windows10.html">windows10</a></li>
+
+<li><a href="/tags/体会.html">体会;</a></li>
+
+<li><a href="/tags/双系统.html">双系统</a></li>
+
+<li><a href="/tags/平面国.html">平面国</a></li>
+
+<li><a href="/tags/斜体.html">斜体</a></li>
+
+<li><a href="/tags/注释.html">注释</a></li>
+
+<li><a href="/tags/混合硬盘.html">混合硬盘</a></li>
+
+<li><a href="/tags/读记.html">读记</a></li>
+
+<li><a href="/tags/重装.html">重装</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/About.html">About</a>
+            </li> 
+            <li><a href="/feeds/all.atom.xml">Atom</a></li>
+            <li><a href="/feeds/all.rss.xml">RSS</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+
+        <!-- Main column -->
+        <div id="content" class="col-md-12">
+
+
+
+
+
+          <article>
+  <header>
+    <h1>Racket ffi</h1>
+    <p class='date-and-tags'>
+<time datetime="2016-07-18" pubdate="true">2016-07-18</time> :: <span class="tags"><a href="/tags/Racket.html">Racket</a>, <a href="/tags/FFI.html">FFI</a>, <a href="/tags/.html"></a></span></p>
+  </header>
+
+<p> _今天花了些时间了解了Racket的FFI用法,只是初步的了解.所谓的*FFI*是指 <em>foreign fuction interface</em>.ok FFI让racket程序可以调用基于c的api而不用去写一行的c.</p>
+<!-- more-->
+
+<p> 以下内容大部分来自对于这篇<a href="http://prl.ccs.neu.edu/blog/2016/06/27/tutorial-using-racket-s-ffi/">文章</a>的翻译,当然不会全是完全一样,其实我也有自己的私心&mdash;学好一样东西最好的办法就是将他教授给别人.</p>
+
+<p> 学习FFI最好的方式是去看<a href="http://docs.racket-lang.org/foreign/index.html">文档</a>.但是对于一个初学者来说文档的信息量可能太大.</p>
+
+<p> 这篇教程会手把手地教会你关于FFI的一些使用,你需要准备的就是在你的电脑上安装好<code>Drracket</code>.</p>
+
+<p> 在开始之前,先声明一件事情.感谢<code>Eli Barzilay</code>和<code>Dmitry Orlovsky</code>的工作让我们可以在racket中使用FFI.如果你对于FFI的设计实现好奇的话可以参考这篇<a href="http://www.ccs.neu.edu/racket/pubs/scheme04-bo.pdf">论文</a>.</p>
+
+<p> 这篇教程主要会使用 <a href="https://www.cairographics.org/">Cairo</a>图形库,主要是因为它是和Racket一起捆绑安装的.</p>
+
+<p> 我们的目标就是用racket复刻Cairo官网上的样例</p>
+
+<div class="brush: c">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span>  <span class="n">cairo_move_to</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">);</span>
+  <span class="n">cairo_line_to</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">75.0</span><span class="p">);</span>
+
+  <span class="n">cairo_move_to</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">125.0</span><span class="p">);</span>
+  <span class="n">cairo_line_to</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">125.0</span><span class="p">);</span>
+
+  <span class="n">cairo_move_to</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">175.0</span><span class="p">);</span>
+  <span class="n">cairo_line_to</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">200.0</span><span class="p">,</span> <span class="mf">175.0</span><span class="p">);</span>
+
+  <span class="n">cairo_set_line_width</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">);</span>
+  <span class="n">cairo_set_line_cap</span> <span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="n">CAIRO_LINE_CAP_ROUND</span><span class="p">);</span>
+  <span class="n">cairo_stroke</span> <span class="p">(</span><span class="n">cr</span><span class="p">);</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>为了实现上述c代码所具有的功能,我们需要做一些准备工作.</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="kn">#lang </span><span class="nn">racket</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">racket/draw</span><span class="p">)</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">bt</span> <span class="p">(</span><span class="n">make-bitmap</span> <span class="mi">256</span> <span class="mi">256</span><span class="p">))</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">bt-surface</span> <span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/ivaraccess.html#(form._((lib._racket/private/class-internal..rkt)._send))" style="color: inherit">send</a></span> <span class="n">bt</span> <span class="n">get-handle</span><span class="p">))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>首先需要导入FFI</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">ffi/unsafe</span><span class="p">)</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>接下来就是导入Cairo库了</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">cairo-lib</span> <span class="p">(</span><span class="n">ffi</span> <span class="s2">"libcairo"</span><span class="p">))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<h2 id="提取函数">提取函数</h2>
+
+<p>在cairo的链接库中存在这样的api接口</p>
+
+<div class="brush: c">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="cm">/* NB: this is C code */</span>
+<span class="n">cairo_t</span> <span class="o">*</span> <span class="nf">cairo_create</span> <span class="p">(</span><span class="n">cairo_surface_t</span> <span class="o">*</span><span class="n">target</span><span class="p">);</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>现在就可以用ffi将cairo_create转换为racket的函数,让我们可以在racket调用</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">cairo-create</span>
+    <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#(def._((lib._ffi/unsafe..rkt)._get-ffi-obj))" style="color: inherit">get-ffi-obj</a></span> <span class="s2">"cairo_create"</span> <span class="n">cairo-lib</span>
+                 <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Pointer_Types.html#(def._((quote._~23~25foreign).__pointer))" style="color: inherit">_pointer</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Pointer_Types.html#(def._((quote._~23~25foreign).__pointer))" style="color: inherit">_pointer</a></span><span class="p">)))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p><code>get-ffi-obj</code>拿到函数的名字和它所在的库就可以拿到这个函数了,但是并不知道这个函数的调用参数.最后的那部分就是说明<code>cairo_create</code>的参数和返回值的 <code>-&gt;</code> 的作用只是分隔参数的返回值</p>
+
+<p>到这里对于ffi就有一个大致的了解了 <code>_pointer</code>是导入FFI之后就可使用的,对应的是c中的指针,类似的基本数据类型都有对应,例如_int ,_double等等. 只有<code>_pointer</code>类型的话也带来了一个问题,你很容易将不同的指针类型搞混,毕竟™都是指针.</p>
+
+<h2 id="插曲-类型安全">插曲 类型安全</h2>
+
+<p>先定义一下指针类型,再去使用他们 <code>racket
+(define-cpointer-type _cairo_t)
+(define-cpointer-type _cairo_surface_t)</code></p>
+
+<p>用新的指针类型来定义<code>cairo_create</code></p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">cairo-create</span>
+    <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#(def._((lib._ffi/unsafe..rkt)._get-ffi-obj))" style="color: inherit">get-ffi-obj</a></span> <span class="s2">"cairo_create"</span> <span class="n">cairo-lib</span>
+                 <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_surface_t</span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n">_cairo_t</span><span class="p">)))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<h2 id="使用宏来减少重复劳动">使用宏来减少重复劳动</h2>
+
+<p>有了上面的经验,接下来就可以实现其他的函数,将我们要用到的函数通通转化到Racket可以调用的形式</p>
+
+<div class="brush: c">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="kt">void</span> <span class="nf">cairo_move_to</span> <span class="p">(</span><span class="n">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">,</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">cairo_line_to</span> <span class="p">(</span><span class="n">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">,</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">cairo_set_line_width</span> <span class="p">(</span><span class="n">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">,</span> <span class="kt">double</span> <span class="n">width</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">cairo_set_line_cap</span> <span class="p">(</span><span class="n">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">,</span> <span class="n">cairo_line_cap_t</span> <span class="n">line_cap</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">cairo_stroke</span> <span class="p">(</span><span class="n">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">);</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>那么就从 <code>cairo_move_to</code>下手好了,就像之前那么做</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">cairo-move-to</span>
+    <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#(def._((lib._ffi/unsafe..rkt)._get-ffi-obj))" style="color: inherit">get-ffi-obj</a></span>
+     <span class="s2">"cairo_move_to"</span>
+     <span class="n">cairo-lib</span>
+     <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Pointer_Types.html#(def._((quote._~23~25foreign).__pointer))" style="color: inherit">_pointer</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>似乎每次都要写一遍 (get-ffi-obj xxx cairo-lib (&hellip;)),实际上ffi提供了<code>define-ffi-definer</code>来简化函数的定义</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span> <span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">ffi/unsafe/define</span><span class="err">)</span>
+ <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Defining_Bindings.html#(form._((lib._ffi/unsafe/define..rkt)._define-ffi-definer))" style="color: inherit">define-ffi-definer</a></span> <span class="n">define-cairo</span> <span class="n">cairo-lib</span><span class="p">)</span>
+ <span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-move-to</span>
+     <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+        <span class="kd">#:c-id</span> <span class="n">cairo_move_to</span><span class="p">)</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>如果你喜欢原来的函数名子的话定义还可以更加简单</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo_move_to</span> <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>接下啦如法炮制</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-line-to</span>
+    <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+    <span class="kd">#:c-id</span> <span class="n">cairo_line_to</span><span class="p">)</span>
+<span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-set-line-width</span>
+    <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+    <span class="kd">#:c-id</span> <span class="n">cairo_set_line_width</span><span class="p">)</span>
+<span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-stroke</span>
+    <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+    <span class="kd">#:c-id</span> <span class="n">cairo_stroke</span><span class="p">)</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>比较有意思的是<code>cairo_set_line_cap</code>,它的参数中出现了<code>cairo_line_cap_t</code>,这是一个枚举对象.Rackt的FFI可以让你方便的定义枚举对象</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">_cairo_line_cap_t</span>
+    <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#(def._((lib._ffi/unsafe..rkt).__enum))" style="color: inherit">_enum</a></span> <span class="o">'</span><span class="p">(</span><span class="ss">butt</span> <span class="ss"><a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._round))" style="color: inherit">round</a></span> <span class="ss">square</span><span class="p">)))</span>
+<span class="o">'</span><span class="err">))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>这里的符号并不重要,因为他们会与一个整数对应(其实我不太明白,也许枚举类型会有一个编号,这些符号最终也只是这些编号的助记符).有了这个枚举类那么<code>cairo_set_line_cap</code>也就可以轻松的定义出来了</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-set-line-cap</span>
+    <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n">_cairo_line_cap_t</span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+    <span class="kd">#:c-id</span> <span class="n">cairo_set_line_cap</span><span class="p">)</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<h2 id="ok看看我们都完成了些什么">ok,看看我们都完成了些什么</h2>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="n">cairo-move-to</span> <span class="n">ctx</span> <span class="mf">50.0</span> <span class="mf">75.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-line-to</span> <span class="n">ctx</span> <span class="mf">200.0</span> <span class="mf">75.0</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">cairo-move-to</span> <span class="n">ctx</span> <span class="mf">50.0</span> <span class="mf">125.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-line-to</span> <span class="n">ctx</span> <span class="mf">200.0</span> <span class="mf">125.0</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">cairo-move-to</span> <span class="n">ctx</span> <span class="mf">50.0</span> <span class="mf">175.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-line-to</span> <span class="n">ctx</span> <span class="mf">200.0</span> <span class="mf">175.0</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">cairo-set-line-width</span> <span class="n">ctx</span> <span class="mf">30.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-set-line-cap</span> <span class="n">ctx</span> <span class="o">'</span><span class="ss"><a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._round))" style="color: inherit">round</a></span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-stroke</span> <span class="n">ctx</span><span class="p">)</span><span class="o">'</span><span class="err">)</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>在这里我们用cairo的函数库已经绘制到bt中了,now看看结果吧</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">pict</span><span class="p">)</span>
+<span class="p">(</span><span class="n">linewidth</span> <span class="mi">2</span> <span class="p">(</span><span class="n">frame</span> <span class="p">(</span><span class="n">bitmap</span> <span class="n">bt</span><span class="p">)))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>没有什么意外的话会看到 <img src="/img/pict.png" alt="" /></p>
+
+<p>现在将完整的代码放在下面</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="kn">#lang </span><span class="nn">racket</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/require.html#(form._((lib._racket/private/base..rkt)._require))" style="color: inherit">require</a></span> <span class="n">racket/draw</span>
+         <span class="n">racket/gui/base</span>
+         <span class="n">ffi/unsafe</span>
+         <span class="n">ffi/unsafe/define</span>
+         <span class="n">pict</span><span class="p">)</span>
+
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">bt</span> <span class="p">(</span><span class="n">make-bitmap</span> <span class="mi">256</span> <span class="mi">256</span><span class="p">))</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">bt-surface</span> <span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/ivaraccess.html#(form._((lib._racket/private/class-internal..rkt)._send))" style="color: inherit">send</a></span> <span class="n">bt</span> <span class="n">get-handle</span><span class="p">))</span>
+<span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#(form._((lib._ffi/unsafe..rkt)._define-cpointer-type))" style="color: inherit">define-cpointer-type</a></span> <span class="n">_cairo_t</span><span class="p">)</span>
+<span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_tagged-pointers.html#(form._((lib._ffi/unsafe..rkt)._define-cpointer-type))" style="color: inherit">define-cpointer-type</a></span> <span class="n">_cairo_surface_t</span><span class="p">)</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">cairo-lib</span> <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#(def._((lib._ffi/unsafe..rkt)._ffi-lib))" style="color: inherit">ffi-lib</a></span> <span class="s2">"libcairo"</span><span class="p">))</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">cairo-create</span> <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Loading_Foreign_Libraries.html#(def._((lib._ffi/unsafe..rkt)._get-ffi-obj))" style="color: inherit">get-ffi-obj</a></span> <span class="s2">"cairo_create"</span> <span class="n">cairo-lib</span>
+                                  <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span>  <span class="n">_cairo_surface_t</span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n">_cairo_t</span><span class="p">)))</span>
+<span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Defining_Bindings.html#(form._((lib._ffi/unsafe/define..rkt)._define-ffi-definer))" style="color: inherit">define-ffi-definer</a></span> <span class="n">define-cairo</span> <span class="n">cairo-lib</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-move-to</span>
+  <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+  <span class="kd">#:c-id</span> <span class="n">cairo_move_to</span><span class="p">)</span>
+<span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-line-to</span>
+  <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+  <span class="kd">#:c-id</span> <span class="n">cairo_line_to</span><span class="p">)</span>
+<span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-set-line-width</span>
+  <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+  <span class="kd">#:c-id</span> <span class="n">cairo_set_line_width</span><span class="p">)</span>
+<span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-stroke</span>
+  <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+  <span class="kd">#:c-id</span> <span class="n">cairo_stroke</span><span class="p">)</span>
+
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">_cairo_line_cap_t</span>
+  <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/Enumerations_and_Masks.html#(def._((lib._ffi/unsafe..rkt).__enum))" style="color: inherit">_enum</a></span> <span class="o">'</span><span class="p">(</span><span class="ss">butt</span> <span class="ss"><a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._round))" style="color: inherit">round</a></span> <span class="ss">square</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="n">define-cairo</span> <span class="n">cairo-set-line-cap</span>
+  <span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/foreign_procedures.html#(form._((lib._ffi/unsafe..rkt).__fun))" style="color: inherit">_fun</a></span> <span class="n">_cairo_t</span> <span class="n">_cairo_line_cap_t</span> <span class="k"><a href="http://docs.racket-lang.org/reference/function-contracts.html#(form._((lib._racket/contract/base..rkt)._-~3e))" style="color: inherit">-&gt;</a></span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Other_Atomic_Types.html#(def._((quote._~23~25foreign).__void))" style="color: inherit">_void</a></span><span class="p">)</span>
+  <span class="kd">#:c-id</span> <span class="n">cairo_set_line_cap</span><span class="p">)</span>
+
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">ctx</span> <span class="p">(</span><span class="n">cairo-create</span> <span class="n">bt-surface</span><span class="p">))</span>
+<span class="p">(</span><span class="n">cairo-move-to</span> <span class="n">ctx</span> <span class="mf">50.0</span> <span class="mf">75.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-line-to</span> <span class="n">ctx</span> <span class="mf">200.0</span> <span class="mf">75.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-move-to</span> <span class="n">ctx</span> <span class="mf">50.0</span> <span class="mf">125.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-line-to</span> <span class="n">ctx</span> <span class="mf">200.0</span> <span class="mf">125.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-move-to</span> <span class="n">ctx</span> <span class="mf">50.0</span> <span class="mf">175.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-line-to</span> <span class="n">ctx</span> <span class="mf">200.0</span> <span class="mf">175.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-set-line-width</span> <span class="n">ctx</span> <span class="mf">30.0</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-set-line-cap</span> <span class="n">ctx</span> <span class="o">'</span><span class="ss"><a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._round))" style="color: inherit">round</a></span><span class="p">)</span>
+<span class="p">(</span><span class="n">cairo-stroke</span> <span class="n">ctx</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">linewidth</span> <span class="mi">2</span> <span class="p">(</span><span class="n">frame</span> <span class="p">(</span><span class="n">bitmap</span> <span class="n">bt</span><span class="p">)))</span><span class="o">'</span><span class="err">)</span><span class="o">'</span><span class="err">))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>ok了,第一部分就这样.</p>
+  <footer>
+    <script type="text/javascript">
+      !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document,"script","twitter-wjs");
+    </script>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="http://shenxs.github.io/blog/2016/07/18/racket-ffi/"
+       data-dnt="true">
+      "Tweet"</a>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="medium" href="http://shenxs.github.io/blog/2016/07/18/racket-ffi/"></g:plusone>
+    <script type="text/javascript">
+      var disqus_shortname = 'shortname';
+      (function() {
+          var dsq = document.createElement('script');
+          dsq.type = 'text/javascript';
+          dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <div id="disqus_thread"></div>
+    <ul class="pager">
+
+    <li class="next">
+      <a href="/blog/2016/07/17/the-difference-between-data-and-function/"><em>The difference between data and function</em> &rarr;</a>
+    </li>
+    </ul>
+  </footer>
+</article>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        <p><a href="https://twitter.com/racketlang"
+              class="twitter-follow-button"
+              data-show-count="false"
+              data-lang="en">
+             "Follow RacketLang"
+           </a>
+           <script type="text/javascript">
+             !function(d,s,id){
+                 var js,fjs=d.getElementsByTagName(s)[0];
+                 if(!d.getElementById(id)){
+                     js=d.createElement(s);
+                     js.id=id;
+                     js.src="//platform.twitter.com/widgets.js";
+                     fjs.parentNode.insertBefore(js,fjs);
+                 }
+             }(document,"script","twitter-wjs");
+           </script></p>
+        <p>Site generated
+        by <a href="https://github.com/greghendershott/frog">Frog</a>,
+        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+        <p>Using <a href="http://twitter.github.com/bootstrap/index.html">Bootstrap</a>.</p>
+        <p><em>Your legal notice here</em>.</p>
+      </footer>
+    </div>
+    <!-- </body> JS -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

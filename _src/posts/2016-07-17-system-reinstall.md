@@ -71,7 +71,7 @@ sudo apt-get update && sudo apt-get install nvidia-355
 - ### 修改默认路径
 修改~/.config/user-dirs.dirs 文件以下是我的配置文件
 
-```txt
+``` txt
 # This file is written by xdg-user-dirs-update
 # If you want to change or add directories, just edit the line you're
 # interested in. All local changes will be retained on the next run
