@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+    <head>
 
-    <meta charset="utf-8">
-    <title>system reinstall</title>
-    <meta name="description" content="基本情况和要求介绍:   双硬盘,一块128G的ssd,一块500G的机械硬盘 8G内存   N卡加intel集显   最后要求双系统,Ubuntu14.04LTS + Windows10...">
-    <meta name="author"      content="Mr.λ">
-    <meta name="keywords"    content="重装, 双系统, ubuntu, windows10, ssd, 混合硬盘">
-    <meta name="viewport"    content="width=device-width, initial-scale=1.0">
-    <link rel="icon"      href="/favicon.ico">
-    <link rel="canonical" href="http://shenxs.github.io/blog/2016/07/17/system-reinstall/">
-    <link rel="next" href="/blog/2016/07/17/flatland/">
-    <link rel="prev" href="/blog/2016/07/17/the-difference-between-data-and-function/">
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/pygments.css">
-    <link rel="stylesheet" type="text/css" href="/css/scribble.css">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css">
-    <!-- Feeds -->
-    <link rel="alternate" type="application/atom+xml"
-          href="/feeds/all.atom.xml" title="Atom Feed">
-    <link rel="alternate" type="application/rss+xml"
-          href="/feeds/all.rss.xml" title="RSS Feed">
-    <!-- JS -->
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        <meta charset="utf-8">
+        <title>system reinstall</title>
+        <meta name="description" content="基本情况和要求介绍:   双硬盘,一块128G的ssd,一块500G的机械硬盘 8G内存   N卡加intel集显   最后要求双系统,Ubuntu14.04LTS + Windows10...">
+        <meta name="author"      content="Mr.λ">
+        <meta name="keywords"    content="重装, 双系统, ubuntu, windows10, ssd, 混合硬盘">
+        <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+        <link rel="icon"      href="/favicon.ico">
+        <link rel="canonical" href="http://shenxs.github.io/blog/2016/07/17/system-reinstall/">
+        <link rel="next" href="/blog/2016/07/17/flatland/">
+        <link rel="prev" href="/blog/2016/07/17/the-difference-between-data-and-function/">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+        <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+        <!-- Feeds -->
+        <link rel="alternate" type="application/atom+xml"
+                              href="/feeds/all.atom.xml" title="Atom Feed">
+        <link rel="alternate" type="application/rss+xml"
+                              href="/feeds/all.rss.xml" title="RSS Feed">
+        <!-- JS -->
+        <script type="text/javascript">
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-xxxxx', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </head>
-  <body>
-    <!-- A standard Twitter Bootstrap nav bar -->
-    <header class="navbar navbar-default navbar-inverse"
-            role="banner">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button"
-                  class="navbar-toggle"
-                  data-toggle="collapse"
-                  data-target=".our-nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="/index.html" class="navbar-brand">主页</a>
-        </div>
-        <div class="collapse navbar-collapse our-nav-collapse"
-             role="navigation">
-          <ul class="nav navbar-nav">
+          ga('create', 'UA-xxxxx', 'auto');
+          ga('send', 'pageview');
+        </script>
+        <!-- Theme CSS -->
+        <link href="css/clean-blog.min.css" rel="stylesheet">
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Tags <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/index.html">所有文章</a></li>
+        <!-- Custom Fonts -->
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        <!-- A standard Twitter Bootstrap nav bar -->
+        <header class="navbar navbar-default navbar-inverse"
+                role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button"
+                            class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target=".our-nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/index.html" class="navbar-brand">主页</a>
+                </div>
+                <div class="collapse navbar-collapse our-nav-collapse"
+                     role="navigation">
+                    <ul class="nav navbar-nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Tags <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/index.html">所有文章</a></li>
 
 <li><a href="/tags/bar.html">bar</a></li>
 
@@ -104,33 +112,42 @@
 <li><a href="/tags/读记.html">读记</a></li>
 
 <li><a href="/tags/重装.html">重装</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="/About.html">关于我</a>
-            </li> 
-            <li><a href="/feeds/all.atom.xml">Atom</a></li>
-            <li><a href="/feeds/all.rss.xml">RSS</a></li>
-          </ul>
-        </div>
-      </div>
-    </header>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/About.html">关于我</a>
+                        </li> 
+                        <li><a href="/feeds/all.atom.xml">Atom</a></li>
+                        <li><a href="/feeds/all.rss.xml">RSS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+
+                <!-- Main column -->
+                <div id="content" class="col-md-12">
+
+
+
+
+
+                    <article>
     <div class="container">
-      <div class="row">
-
-        <!-- Main column -->
-        <div id="content" class="col-md-12">
-
-
-
-
-
-          <article>
-  <header>
-    <h1>system reinstall</h1>
-    <p class='date-and-tags'>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>system reinstall</h1>
+                    <p class='date-and-tags'>
 <time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/重装.html">重装</a>, <a href="/tags/双系统.html">双系统</a>, <a href="/tags/ubuntu.html">ubuntu</a>, <a href="/tags/windows10.html">windows10</a>, <a href="/tags/ssd.html">ssd</a>, <a href="/tags/混合硬盘.html">混合硬盘</a></span></p>
-  </header>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
 <h2 id="基本情况和要求介绍">基本情况和要求介绍</h2>
 
@@ -269,74 +286,77 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
 <h2 id="结束语">结束语</h2>
 
 <p>接下来就是各种软件的安装了(挺费时间的),把备份的资料拷到电脑里. 原本我是把ubuntu安装在机械盘上面,ubuntu随着我的升级折腾已经是千疮百孔.开机每次都要等两分半左右 而几乎千年不开机的windows占用着ssd,所以才有了这次的重装,目的就是稳定高效.可以让两个系统共享一个盘符 作为仓库盘,免去了重启切换系统的麻烦.有些软件在windows和ubuntu平台下的配置文件是通用的,可以把他们的工作路径也设置为同一个位置 这样就有了不同系统下一致同步的体验了.安装完成后ubuntu开机几乎10s之内,各种软件 丝滑流畅</p>
-  <footer>
-    <script type="text/javascript">
-      !function(d,s,id){
-          var js,fjs=d.getElementsByTagName(s)[0];
-          if(!d.getElementById(id)){
-              js=d.createElement(s);
-              js.id=id;
-              js.src="//platform.twitter.com/widgets.js";
-              fjs.parentNode.insertBefore(js,fjs);
-          }
-      }(document,"script","twitter-wjs");
-    </script>
-    <a href="https://twitter.com/share"
-       class="twitter-share-button"
-       data-url="http://shenxs.github.io/blog/2016/07/17/system-reinstall/"
-       data-dnt="true">
-      "Tweet"</a>
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <g:plusone size="medium" href="http://shenxs.github.io/blog/2016/07/17/system-reinstall/"></g:plusone>
-    <script type="text/javascript">
-      var disqus_shortname = 'shortname';
-      (function() {
-          var dsq = document.createElement('script');
-          dsq.type = 'text/javascript';
-          dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    </script>
-    <div id="disqus_thread"></div>
-    <ul class="pager">
-    <li class="previous">
-      <a href="/blog/2016/07/17/the-difference-between-data-and-function/">&larr; <em>The difference between data and function</em></a>
-    </li>
-    <li class="next">
-      <a href="/blog/2016/07/17/flatland/"><em>Flatland</em> &rarr;</a>
-    </li>
-    </ul>
-  </footer>
-</article>
+            </div>
         </div>
-      </div>
-      <footer>
-        <hr />
-        <p><a href="https://twitter.com/racketlang"
-              class="twitter-follow-button"
-              data-show-count="false"
-              data-lang="en">
-             "Follow RacketLang"
-           </a>
-           <script type="text/javascript">
-             !function(d,s,id){
-                 var js,fjs=d.getElementsByTagName(s)[0];
-                 if(!d.getElementById(id)){
-                     js=d.createElement(s);
-                     js.id=id;
-                     js.src="//platform.twitter.com/widgets.js";
-                     fjs.parentNode.insertBefore(js,fjs);
-                 }
-             }(document,"script","twitter-wjs");
-           </script></p>
-        <p>由<a href="https://github.com/greghendershott/frog">Frog</a>强力驱动,
-        the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
-        <p><em>Program is just another name of the lost art of thinking</em>.</p>
-      </footer>
     </div>
-    <!-- </body> JS -->
-    <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-  </body>
+    <footer>
+        <script type="text/javascript">
+          !function(d,s,id){
+              var js,fjs=d.getElementsByTagName(s)[0];
+              if(!d.getElementById(id)){
+                  js=d.createElement(s);
+                  js.id=id;
+                  js.src="//platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js,fjs);
+              }
+          }(document,"script","twitter-wjs");
+        </script>
+        <a href="https://twitter.com/share"
+           class="twitter-share-button"
+           data-url="http://shenxs.github.io/blog/2016/07/17/system-reinstall/"
+           data-dnt="true">
+          "Tweet"</a>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <g:plusone size="medium" href="http://shenxs.github.io/blog/2016/07/17/system-reinstall/"></g:plusone>
+        <script type="text/javascript">
+          var disqus_shortname = 'shortname';
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript';
+              dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <div id="disqus_thread"></div>
+        <ul class="pager">
+        <li class="previous">
+          <a href="/blog/2016/07/17/the-difference-between-data-and-function/">&larr; <em>The difference between data and function</em></a>
+        </li>
+        <li class="next">
+          <a href="/blog/2016/07/17/flatland/"><em>Flatland</em> &rarr;</a>
+        </li>
+        </ul>
+    </footer>
+</article>
+                </div>
+            </div>
+            <footer>
+                <hr />
+                <p><a href="https://twitter.com/racketlang"
+                      class="twitter-follow-button"
+                      data-show-count="false"
+                      data-lang="en">
+                     "Follow RacketLang"
+                   </a>
+                   <script type="text/javascript">
+                     !function(d,s,id){
+                         var js,fjs=d.getElementsByTagName(s)[0];
+                         if(!d.getElementById(id)){
+                             js=d.createElement(s);
+                             js.id=id;
+                             js.src="//platform.twitter.com/widgets.js";
+                             fjs.parentNode.insertBefore(js,fjs);
+                         }
+                     }(document,"script","twitter-wjs");
+                   </script></p>
+                <p>由<a href="https://github.com/greghendershott/frog">Frog</a>强力驱动,
+                the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+                <p><em>Program is just another name of the lost art of thinking</em>.</p>
+            </footer>
+        </div>
+        <!-- </body> JS -->
+        <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        </body>
 </html>
