@@ -1,3 +1,5 @@
 # About page
 
-Your about page, here.
+现就读于杭州,浙工大,即将大三软工狗一枚.
+爱折腾,爱生活.折腾累了就歇会儿.
+从这个博客的域名就可以知道我的github的id了,github上也有邮箱.
