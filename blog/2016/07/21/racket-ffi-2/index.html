@@ -490,10 +490,124 @@
 </td></tr></tbody></table>
 </div>
 
-<p>没有什么意外我们的大致看上去是这样的</p>
+<p>没有什么意外我们的结果大致看上去是这样的</p>
 
 <div class="figure"><img src="/img/ffi2.png" alt="" />
  <p class="caption"></p></div>
+
+<h2 id="返回参数和c结构体">返回参数和c结构体</h2>
+
+<p>为了演示一些FFI的高级用法,不妨设我们要向一个预设的空间写一些文字.更加确切地说我们有一个256x256的画布,现在想要在上面写一些文字.</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">txt-bt</span> <span class="p">(</span><span class="n">make-bitmap</span> <span class="mi">256</span> <span class="mi">256</span><span class="p">))</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">txt-surface</span> <span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/ivaraccess.html#(form._((lib._racket/private/class-internal..rkt)._send))" style="color: inherit">send</a></span> <span class="n">txt-bt</span> <span class="n">get-handle</span><span class="p">))</span>
+<span class="p">(</span><span class="k"><a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit">define</a></span> <span class="n">txt-ctx</span> <span class="p">(</span><span class="n">cairo-create</span> <span class="n">txt-surface</span><span class="p">))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>我们要做的是写这样一个函数,它接受一个字符串(我们假设我们的文字一行可以写下)将它画到一个位图上.因为这是任意的一个字符串,所以我们必须弄明白如何缩放这段字符串使其适应画布的大小.简单起见我们只考虑宽度,假设高度始终足够.</p>
+
+<p>为了实现这关键的一步&mdash;测量字符串放入宽度,我们需要调用cairo的函数<code>cairo_text_extends</code>.其函数申明如下</p>
+
+<div class="brush: c">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="kt">void</span>
+<span class="nf">cairo_text_extents</span> <span class="p">(</span><span class="n">cairo_t</span> <span class="o">*</span><span class="n">cr</span><span class="p">,</span>
+                    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">utf8</span><span class="p">,</span>
+                    <span class="n">cairo_text_extents_t</span> <span class="o">*</span><span class="n">extents</span><span class="p">);</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>这个申明的有趣之处在于其中包含了一个结构体类型<code>cairo_text_extents_t</code>,定义如下</p>
+
+<div class="brush: c">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="cm">/* from the Cairo docs */</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">x_bearing</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y_bearing</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">width</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">height</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">x_advance</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">y_advance</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">cairo_text_extents_t</span><span class="p">;</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>到现在还不知道怎么支持c的结构体,不过不用担心,这并不复杂.如果你对于Racket的结构体的定义熟悉的话,这看上去应该比较面熟.</p>
+
+<div class="brush: racket">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span><span class="c1">;;必须要有开头的下划线</span>
+<span class="p">(</span><span class="n"><a href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#(form._((lib._ffi/unsafe..rkt)._define-cstruct))" style="color: inherit">define-cstruct</a></span> <span class="n">_cairo_text_extents_t</span>
+    <span class="p">([</span><span class="n">x-bearing</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span><span class="p">]</span>
+     <span class="p">[</span><span class="n">y-bearing</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span><span class="p">]</span>
+     <span class="p">[</span><span class="n">width</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span><span class="p">]</span>
+     <span class="p">[</span><span class="n">height</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span><span class="p">]</span>
+     <span class="p">[</span><span class="n">x-advance</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span><span class="p">]</span>
+     <span class="p">[</span><span class="n">y-advance</span> <span class="n"><a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit">_double</a></span><span class="p">]))</span>
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>伴随这这个定义,我们还附带得到了一系列与之相关的函数, |数据类型|解释| |:&mdash;&mdash;:|:&mdash;:| |<code>_cairo_text_extents_t</code> |结构体类型| |<code>_cairo_text_extents_t-pointer</code>|指向结构体的指针| |<code>_cairo_text_extents_t-pointer/null</code>|允许空指针|</p>
+
+<p>与Racket的struct非常了类似的是,附带还声明了一些操作函数</p>
+
+<p>|函数名|作用| |:&mdash;:|:&mdash;:| |<code>make-cairo_text_extents_t</code>|构造函数| |<code>cairo_text_extents_t-width</code>|选择函数| |<code>cairo_text_extents_t?</code>|谓词函数| |<code>set-cairo_text_extents_t-width!</code>|设定函数|</p>
             </div>
         </div>
     </div>

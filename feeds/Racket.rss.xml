@@ -354,10 +354,124 @@
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;没有什么意外我们的大致看上去是这样的&lt;/p&gt;
+&lt;p&gt;没有什么意外我们的结果大致看上去是这样的&lt;/p&gt;
 
 &lt;div class="figure"&gt;&lt;img src="/img/ffi2.png" alt="" /&gt;
- &lt;p class="caption"&gt;&lt;/p&gt;&lt;/div&gt;&lt;/html&gt;</description></item>
+ &lt;p class="caption"&gt;&lt;/p&gt;&lt;/div&gt;
+
+&lt;h2 id="返回参数和c结构体"&gt;返回参数和c结构体&lt;/h2&gt;
+
+&lt;p&gt;为了演示一些FFI的高级用法,不妨设我们要向一个预设的空间写一些文字.更加确切地说我们有一个256x256的画布,现在想要在上面写一些文字.&lt;/p&gt;
+
+&lt;div class="brush: racket"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;txt-bt&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make-bitmap&lt;/span&gt; &lt;span class="mi"&gt;256&lt;/span&gt; &lt;span class="mi"&gt;256&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;txt-surface&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/ivaraccess.html#(form._((lib._racket/private/class-internal..rkt)._send))" style="color: inherit"&gt;send&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;txt-bt&lt;/span&gt; &lt;span class="n"&gt;get-handle&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;txt-ctx&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cairo-create&lt;/span&gt; &lt;span class="n"&gt;txt-surface&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;我们要做的是写这样一个函数,它接受一个字符串(我们假设我们的文字一行可以写下)将它画到一个位图上.因为这是任意的一个字符串,所以我们必须弄明白如何缩放这段字符串使其适应画布的大小.简单起见我们只考虑宽度,假设高度始终足够.&lt;/p&gt;
+
+&lt;p&gt;为了实现这关键的一步&amp;mdash;测量字符串放入宽度,我们需要调用cairo的函数&lt;code&gt;cairo_text_extends&lt;/code&gt;.其函数申明如下&lt;/p&gt;
+
+&lt;div class="brush: c"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;
+&lt;span class="nf"&gt;cairo_text_extents&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cairo_t&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;cr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;utf8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="n"&gt;cairo_text_extents_t&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;extents&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这个申明的有趣之处在于其中包含了一个结构体类型&lt;code&gt;cairo_text_extents_t&lt;/code&gt;,定义如下&lt;/p&gt;
+
+&lt;div class="brush: c"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/* from the Cairo docs */&lt;/span&gt;
+&lt;span class="k"&gt;typedef&lt;/span&gt; &lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;x_bearing&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;y_bearing&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;x_advance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;y_advance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="n"&gt;cairo_text_extents_t&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;到现在还不知道怎么支持c的结构体,不过不用担心,这并不复杂.如果你对于Racket的结构体的定义熟悉的话,这看上去应该比较面熟.&lt;/p&gt;
+
+&lt;div class="brush: racket"&gt;
+ &lt;table class="sourcetable"&gt;
+  &lt;tbody&gt;
+   &lt;tr&gt;
+    &lt;td class="linenos"&gt;
+     &lt;div class="linenodiv"&gt;
+      &lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
+    &lt;td class="code"&gt;
+     &lt;div class="source"&gt;
+      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;;;必须要有开头的下划线&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/foreign/C_Struct_Types.html#(form._((lib._ffi/unsafe..rkt)._define-cstruct))" style="color: inherit"&gt;define-cstruct&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;_cairo_text_extents_t&lt;/span&gt;
+    &lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;x-bearing&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y-bearing&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x-advance&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+     &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;y-advance&lt;/span&gt; &lt;span class="n"&gt;&lt;a href="http://docs.racket-lang.org/foreign/Numeric_Types.html#(def._((quote._~23~25foreign).__double))" style="color: inherit"&gt;_double&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;伴随这这个定义,我们还附带得到了一系列与之相关的函数, |数据类型|解释| |:&amp;mdash;&amp;mdash;:|:&amp;mdash;:| |&lt;code&gt;_cairo_text_extents_t&lt;/code&gt; |结构体类型| |&lt;code&gt;_cairo_text_extents_t-pointer&lt;/code&gt;|指向结构体的指针| |&lt;code&gt;_cairo_text_extents_t-pointer/null&lt;/code&gt;|允许空指针|&lt;/p&gt;
+
+&lt;p&gt;与Racket的struct非常了类似的是,附带还声明了一些操作函数&lt;/p&gt;
+
+&lt;p&gt;|函数名|作用| |:&amp;mdash;:|:&amp;mdash;:| |&lt;code&gt;make-cairo_text_extents_t&lt;/code&gt;|构造函数| |&lt;code&gt;cairo_text_extents_t-width&lt;/code&gt;|选择函数| |&lt;code&gt;cairo_text_extents_t?&lt;/code&gt;|谓词函数| |&lt;code&gt;set-cairo_text_extents_t-width!&lt;/code&gt;|设定函数|&lt;/p&gt;&lt;/html&gt;</description></item>
   <item>
    <title>Racket ffi</title>
    <link>http://shenxs.github.io/blog/2016/07/18/racket-ffi/?utm_source=Racket&amp;utm_medium=RSS</link>
