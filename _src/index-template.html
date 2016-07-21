@@ -4,10 +4,11 @@
             @|title|
         </h2>
     </a>
-    <p class="post-meta">@|date| :: @|tags|</p>
+    <p class="post-meta">@|date| :: @|tags|
     @|content-only|
     @(when more?
     @list{<footer>
         <a href='@|uri-path|'>&hellip; more &hellip;</a>
     </footer>})
+    </p>
 </div>
