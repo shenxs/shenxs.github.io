@@ -3,14 +3,14 @@
     <head>
 
         <meta charset="utf-8">
-        <title>Posts tagged 'Racket'</title>
-        <meta name="description" content="Posts tagged 'Racket'">
+        <title>Raspberry Pi GPIO</title>
+        <meta name="description" content="树莓派的GPIO,摘自《BCM2835 ARM Peripherals》...">
         <meta name="author"      content="Mr.λ">
-        <meta name="keywords"    content="Racket">
+        <meta name="keywords"    content="Raspberry">
         <meta name="viewport"    content="width=device-width, initial-scale=1.0">
         <link rel="icon"      href="/favicon.ico">
-        <link rel="canonical" href="http://shenxs.github.io/tags/Racket.html">
-
+        <link rel="canonical" href="http://shenxs.github.io/blog/2016/10/06/raspberry-pi-gpio/">
+        <link rel="next" href="/blog/2016/07/22/racket-ffi-3/">
 
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
@@ -19,9 +19,9 @@
         <link rel="stylesheet" type="text/css" href="/css/custom.css">
         <!-- Feeds -->
         <link rel="alternate" type="application/atom+xml"
-                              href="/feeds/Racket.atom.xml" title="Atom Feed">
+                              href="/feeds/all.atom.xml" title="Atom Feed">
         <link rel="alternate" type="application/rss+xml"
-                              href="/feeds/Racket.rss.xml" title="RSS Feed">
+                              href="/feeds/all.rss.xml" title="RSS Feed">
         <!-- JS -->
         <script type="text/javascript">
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -83,9 +83,7 @@
 
 <li><a href="/tags/racket.html">racket</a></li>
 
-<li><a href="/tags/Raspberry-树莓派的GPIO.html">Raspberry
-
-树莓派的GPIO</a></li>
+<li><a href="/tags/Raspberry.html">Raspberry</a></li>
 
 <li><a href="/tags/scheme.html">scheme</a></li>
 
@@ -107,8 +105,6 @@
 
 <li><a href="/tags/平面国.html">平面国</a></li>
 
-<li><a href="/tags/摘自-BCM2835-ARM-Peripherals.html">摘自《BCM2835 ARM Peripherals》</a></li>
-
 <li><a href="/tags/斜体.html">斜体</a></li>
 
 <li><a href="/tags/注释.html">注释</a></li>
@@ -123,8 +119,8 @@
                         <li>
                             <a href="/About.html">关于我</a>
                         </li> 
-                        <li><a href="/feeds/Racket.atom.xml">Atom</a></li>
-                        <li><a href="/feeds/Racket.rss.xml">RSS</a></li>
+                        <li><a href="/feeds/all.atom.xml">Atom</a></li>
+                        <li><a href="/feeds/all.rss.xml">RSS</a></li>
                     </ul>
                 </div>
             </div>
@@ -137,53 +133,72 @@
 
 
 
-                    <h1>Posts tagged <em>Racket</em></h1>
 
-                    <div class="post-preview">
-    <a href='/blog/2016/07/22/racket-ffi-3/'>
-        <h2 class="post-title">
-            Racket FFI 3
-        </h2>
-    </a>
-    <p class="post-meta">
-<time datetime="2016-07-22" pubdate="true">2016-07-22</time> :: <span class="tags"><a href="/tags/Racket.html">Racket</a>, <a href="/tags/FFI.html">FFI</a></span>
 
-<p>这是关于Racket的FFI的使用的第三篇讲解.在这篇博文中我们会涉及到一些底层的操作.包括指针,联合体和自定义的C数据类型.主要还是自定义类型,它可以让你在使用racket和c互交的时候进行抽象进而不需要了解具体的c语言的表现形式.</p>
+                    <article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Raspberry Pi GPIO</h1>
+                    <p class='date-and-tags'>
+<time datetime="2016-10-06" pubdate="true">2016-10-06</time> :: <span class="tags"><a href="/tags/Raspberry.html">Raspberry</a></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+<p>树莓派的GPIO,摘自《BCM2835 ARM Peripherals》</p>
+<!-- more-->
+
+<pre><code>一共有54个通用的I/O线,分成两组.在BCM上所有的pin至少有两个可选的函数.
+可选函数通常是一个外围的io线和另一条独立的线用于控制io的电压.电压控制的线路可能出现在任意一组控制线.
+GPIO有三条专用控制线,这些线通过专用的状态寄存器触发.
+GPIO有41个寄存器,所有的寄存器都可以认为是32位的.</code></pre>
+            </div>
+        </div>
+    </div>
     <footer>
-        <a href='/blog/2016/07/22/racket-ffi-3/'>&hellip; more &hellip;</a>
-    </footer>
-    </p>
-</div>
-<div class="post-preview">
-    <a href='/blog/2016/07/21/racket-ffi-2/'>
-        <h2 class="post-title">
-            Racket FFI 2
-        </h2>
-    </a>
-    <p class="post-meta">
-<time datetime="2016-07-21" pubdate="true">2016-07-21</time> :: <span class="tags"><a href="/tags/Racket.html">Racket</a>, <a href="/tags/FFI.html">FFI</a>, <a href="/tags/.html"></a></span>
+        <script type="text/javascript">
+          !function(d,s,id){
+              var js,fjs=d.getElementsByTagName(s)[0];
+              if(!d.getElementById(id)){
+                  js=d.createElement(s);
+                  js.id=id;
+                  js.src="//platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js,fjs);
+              }
+          }(document,"script","twitter-wjs");
+        </script>
+        <a href="https://twitter.com/share"
+           class="twitter-share-button"
+           data-url="http://shenxs.github.io/blog/2016/10/06/raspberry-pi-gpio/"
+           data-dnt="true">
+          "Tweet"</a>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <g:plusone size="medium" href="http://shenxs.github.io/blog/2016/10/06/raspberry-pi-gpio/"></g:plusone>
+        <script type="text/javascript">
+          var disqus_shortname = 'shortname';
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript';
+              dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <div id="disqus_thread"></div>
+        <ul class="pager">
 
-<p>这是Racket的FFI的第二部分,这次还是会使用Cairo作为调用对象会涉及到FFI使用的时候更多的关于参数的部分,自定义返回值和如何使用c的结构体</p>
-    <footer>
-        <a href='/blog/2016/07/21/racket-ffi-2/'>&hellip; more &hellip;</a>
+        <li class="next">
+          <a href="/blog/2016/07/22/racket-ffi-3/"><em>Racket FFI 3</em> &rarr;</a>
+        </li>
+        </ul>
     </footer>
-    </p>
-</div>
-<div class="post-preview">
-    <a href='/blog/2016/07/18/racket-ffi/'>
-        <h2 class="post-title">
-            Racket ffi
-        </h2>
-    </a>
-    <p class="post-meta">
-<time datetime="2016-07-18" pubdate="true">2016-07-18</time> :: <span class="tags"><a href="/tags/Racket.html">Racket</a>, <a href="/tags/FFI.html">FFI</a>, <a href="/tags/.html"></a></span>
-
-<p> _今天花了些时间了解了Racket的FFI用法,只是初步的了解.所谓的*FFI*是指 <em>foreign fuction interface</em>.ok FFI让racket程序可以调用基于c的api而不用去写一行的c.</p>
-    <footer>
-        <a href='/blog/2016/07/18/racket-ffi/'>&hellip; more &hellip;</a>
-    </footer>
-    </p>
-</div>
+</article>
                 </div>
             </div>
             <footer>

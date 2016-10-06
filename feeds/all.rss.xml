@@ -4,9 +4,22 @@
   <title>Mr.λ @ Here: Mr.λ @ Here</title>
   <description>Mr.λ @ Here: Mr.λ @ Here</description>
   <link>http://shenxs.github.io/index.html</link>
-  <lastBuildDate>Fri, 22 Jul 2016 07:45:41 UT</lastBuildDate>
-  <pubDate>Fri, 22 Jul 2016 07:45:41 UT</pubDate>
+  <lastBuildDate>Thu, 06 Oct 2016 13:30:40 UT</lastBuildDate>
+  <pubDate>Thu, 06 Oct 2016 13:30:40 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Raspberry Pi GPIO</title>
+   <link>http://shenxs.github.io/blog/2016/10/06/raspberry-pi-gpio/?utm_source=all&amp;utm_medium=RSS</link>
+   <guid>urn:http-shenxs-github-io:-blog-2016-10-06-raspberry-pi-gpio</guid>
+   <pubDate>Thu, 06 Oct 2016 13:30:40 UT</pubDate>
+   <description>&lt;html&gt;
+&lt;p&gt;树莓派的GPIO,摘自《BCM2835 ARM Peripherals》&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;pre&gt;&lt;code&gt;一共有54个通用的I/O线,分成两组.在BCM上所有的pin至少有两个可选的函数.
+可选函数通常是一个外围的io线和另一条独立的线用于控制io的电压.电压控制的线路可能出现在任意一组控制线.
+GPIO有三条专用控制线,这些线通过专用的状态寄存器触发.
+GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;&lt;/pre&gt;&lt;/html&gt;</description></item>
   <item>
    <title>Racket FFI 3</title>
    <link>http://shenxs.github.io/blog/2016/07/22/racket-ffi-3/?utm_source=all&amp;utm_medium=RSS</link>
