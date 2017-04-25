@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0">
+ <channel>
+  <title>Mr.λ @ Here: Posts tagged 'cudnn'</title>
+  <description>Mr.λ @ Here: Posts tagged 'cudnn'</description>
+  <link>http://shenxs.github.io/tags/cudnn.html</link>
+  <lastBuildDate>Tue, 25 Apr 2017 12:07:20 UT</lastBuildDate>
+  <pubDate>Tue, 25 Apr 2017 12:07:20 UT</pubDate>
+  <ttl>1800</ttl>
+  <item>
+   <title>记一次Caffe的安装</title>
+   <link>http://shenxs.github.io/blog/2017/04/25/记一次caffe的安装/?utm_source=cudnn&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2017-04-25-记一次caffe的安装</guid>
+   <pubDate>Tue, 25 Apr 2017 12:07:20 UT</pubDate>
+   <author>Mr.λ</author>
+   <description>
+&lt;p&gt; 运河杯需要所以要安装Caffe框架用于图像识别,记录一下遇到的坑&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;基本都是按照Caffe的github上面的wiki安装下来的,挺顺利的除了Cudnn。 用的Ubuntu16.04 Lts 显卡是GeForce 820M(N多年前的卡了,机器学习真的贵)和一张集显.&lt;/p&gt;
+
+&lt;h2 id="cuda"&gt;Cuda&lt;/h2&gt;
+
+&lt;p&gt;cuda直接从NVIDIA下载对应的deb包(我用的在线安装板),这里面的包好像包括了N卡的驱动.  第一遍装的时候cuda直接把原来的Nvidia驱动覆盖了,装的Cuda8.0貌似自带的375驱动.  出现了的问题是当切换到N卡的时候开机会显示Low graphic mode,要么是开机循环登录&lt;/p&gt;
+
+&lt;h3 id="解决办法"&gt;解决办法&lt;/h3&gt;
+
+&lt;p&gt;对于Low graphic Mode,按下&lt;code&gt;Ctrl&lt;/code&gt;+&lt;code&gt;Alt&lt;/code&gt;+&lt;code&gt;F1~F6&lt;/code&gt; 登录一下,使用  &lt;code&gt;shell
+   sudo prime-select intel&lt;/code&gt;  这个只是切换到了N卡,每次关机之前还是要记得切回Intel(蛋疼无比)  最终解决办法是卸载掉全部的N卡驱动 Cuda 然后重装cuda(不挂代理,国内访问下载也挺快的)&lt;/p&gt;
+
+&lt;h2 id="opencv"&gt;opencv&lt;/h2&gt;
+
+&lt;p&gt;我安装的时候挺顺利的没什么大问题&lt;/p&gt;
+
+&lt;h2 id="cudnn"&gt;cudnn&lt;/h2&gt;
+
+&lt;p&gt;cudnn可以大幅度加速计算速度(那么棒,那当然上上上),无论我换Cudnn6.0还是5.1在caffe开始计算的时候都显示我的Cudnn出了问题  &lt;code&gt;text
+   Check failed: status == CUDNN_STATUS_SUCCESS (6 vs. 0) CUDNN_STATUS_ARCH_MISMATCH&lt;/code&gt;  查了一下是我的显卡问题不支持cudnn, 因为笔记本上的显卡的CUDA Capability是2.1,而官方的cudnn加速是不支持3.0以下的版本的，因此只能在Makefile.config中注释掉USE_CUDNN这行,重新make一下caffe&lt;/p&gt;
+
+&lt;h2 id="caffe"&gt;caffe&lt;/h2&gt;
+
+&lt;p&gt;没遇到问题。&lt;/p&gt;</description></item></channel></rss>

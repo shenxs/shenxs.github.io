@@ -4,7 +4,55 @@
  <link rel="self" href="http://shenxs.github.io/feeds/all.atom.xml" />
  <link href="http://shenxs.github.io/index.html" />
  <id>urn:http-shenxs-github-io:-index-html</id>
- <updated>2016-10-07T15:10:58Z</updated>
+ <updated>2017-04-25T12:42:38Z</updated>
+ <entry>
+  <title type="text">hello</title>
+  <link rel="alternate" href="http://shenxs.github.io/blog/2017/04/25/hello/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-shenxs-github-io:-blog-2017-04-25-hello</id>
+  <published>2017-04-25T12:42:38Z</published>
+  <updated>2017-04-25T12:42:38Z</updated>
+  <author>
+   <name>Mr.λ</name></author>
+  <content type="html">
+&lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt; just for fun&lt;/p&gt;</content></entry>
+ <entry>
+  <title type="text">记一次Caffe的安装</title>
+  <link rel="alternate" href="http://shenxs.github.io/blog/2017/04/25/记一次caffe的安装/?utm_source=all&amp;utm_medium=Atom" />
+  <id>urn:http-shenxs-github-io:-blog-2017-04-25-记一次caffe的安装</id>
+  <published>2017-04-25T12:07:20Z</published>
+  <updated>2017-04-25T12:07:20Z</updated>
+  <author>
+   <name>Mr.λ</name></author>
+  <content type="html">
+&lt;p&gt; 运河杯需要所以要安装Caffe框架用于图像识别,记录一下遇到的坑&lt;/p&gt;
+&lt;!-- more--&gt;
+
+&lt;p&gt;基本都是按照Caffe的github上面的wiki安装下来的,挺顺利的除了Cudnn。 用的Ubuntu16.04 Lts 显卡是GeForce 820M(N多年前的卡了,机器学习真的贵)和一张集显.&lt;/p&gt;
+
+&lt;h2 id="cuda"&gt;Cuda&lt;/h2&gt;
+
+&lt;p&gt;cuda直接从NVIDIA下载对应的deb包(我用的在线安装板),这里面的包好像包括了N卡的驱动.  第一遍装的时候cuda直接把原来的Nvidia驱动覆盖了,装的Cuda8.0貌似自带的375驱动.  出现了的问题是当切换到N卡的时候开机会显示Low graphic mode,要么是开机循环登录&lt;/p&gt;
+
+&lt;h3 id="解决办法"&gt;解决办法&lt;/h3&gt;
+
+&lt;p&gt;对于Low graphic Mode,按下&lt;code&gt;Ctrl&lt;/code&gt;+&lt;code&gt;Alt&lt;/code&gt;+&lt;code&gt;F1~F6&lt;/code&gt; 登录一下,使用  &lt;code&gt;shell
+   sudo prime-select intel&lt;/code&gt;  这个只是切换到了N卡,每次关机之前还是要记得切回Intel(蛋疼无比)  最终解决办法是卸载掉全部的N卡驱动 Cuda 然后重装cuda(不挂代理,国内访问下载也挺快的)&lt;/p&gt;
+
+&lt;h2 id="opencv"&gt;opencv&lt;/h2&gt;
+
+&lt;p&gt;我安装的时候挺顺利的没什么大问题&lt;/p&gt;
+
+&lt;h2 id="cudnn"&gt;cudnn&lt;/h2&gt;
+
+&lt;p&gt;cudnn可以大幅度加速计算速度(那么棒,那当然上上上),无论我换Cudnn6.0还是5.1在caffe开始计算的时候都显示我的Cudnn出了问题  &lt;code&gt;text
+   Check failed: status == CUDNN_STATUS_SUCCESS (6 vs. 0) CUDNN_STATUS_ARCH_MISMATCH&lt;/code&gt;  查了一下是我的显卡问题不支持cudnn, 因为笔记本上的显卡的CUDA Capability是2.1,而官方的cudnn加速是不支持3.0以下的版本的，因此只能在Makefile.config中注释掉USE_CUDNN这行,重新make一下caffe&lt;/p&gt;
+
+&lt;h2 id="caffe"&gt;caffe&lt;/h2&gt;
+
+&lt;p&gt;没遇到问题。&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">raspberry pi timer</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/10/07/raspberry-pi-timer/?utm_source=all&amp;utm_medium=Atom" />
@@ -13,7 +61,7 @@
   <updated>2016-10-07T15:10:58Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;树莓派的计时器&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -21,7 +69,7 @@
 树莓派没有板载的电源所以不加电的时候时间就不准.因此我们只能依靠这个计时器来计时.
 计时器本身有64位,与其搭配的还有32位的控制字,4个32位的比较寄存器.计时器是只读的.
     计时器每一μs加1.每次加完都会将低32位与比较寄存器比较.如果和任何一个匹配上了,
-就根据所匹配的寄存器对控制/或者叫状态寄存器进行更新.&lt;/code&gt;&lt;/pre&gt;&lt;/html&gt;</content></entry>
+就根据所匹配的寄存器对控制/或者叫状态寄存器进行更新.&lt;/code&gt;&lt;/pre&gt;</content></entry>
  <entry>
   <title type="text">Raspberry Pi GPIO</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/10/06/raspberry-pi-gpio/?utm_source=all&amp;utm_medium=Atom" />
@@ -30,14 +78,14 @@
   <updated>2016-10-06T13:30:40Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;树莓派的GPIO,摘自《BCM2835 ARM Peripherals》&lt;/p&gt;
 &lt;!-- more--&gt;
 
 &lt;pre&gt;&lt;code&gt;一共有54个通用的I/O线,分成两组.在BCM上所有的pin至少有两个可选的函数.
 可选函数通常是一个外围的io线和另一条独立的线用于控制io的电压.电压控制的线路可能出现在任意一组控制线.
 GPIO有三条专用控制线,这些线通过专用的状态寄存器触发.
-GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;&lt;/pre&gt;&lt;/html&gt;</content></entry>
+GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;&lt;/pre&gt;</content></entry>
  <entry>
   <title type="text">Racket FFI 3</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/22/racket-ffi-3/?utm_source=all&amp;utm_medium=Atom" />
@@ -46,7 +94,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
   <updated>2016-07-22T07:45:41Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;这是关于Racket的FFI的使用的第三篇讲解.在这篇博文中我们会涉及到一些底层的操作.包括指针,联合体和自定义的C数据类型.主要还是自定义类型,它可以让你在使用racket和c互交的时候进行抽象进而不需要了解具体的c语言的表现形式.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -1146,7 +1194,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
             &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cairo-stroke&lt;/span&gt; &lt;span class="n"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;&lt;/html&gt;</content></entry>
+&lt;/div&gt;</content></entry>
  <entry>
   <title type="text">Racket FFI 2</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/21/racket-ffi-2/?utm_source=all&amp;utm_medium=Atom" />
@@ -1155,7 +1203,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
   <updated>2016-07-21T07:44:45Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;这是Racket的FFI的第二部分,这次还是会使用Cairo作为调用对象会涉及到FFI使用的时候更多的关于参数的部分,自定义返回值和如何使用c的结构体&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -2078,7 +2126,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
 
 &lt;p&gt;后记:换到spacemacs写,体验还不错,但是稳定性奇差无比感觉完全和vim无法比.复制黏贴会卡,间歇性卡死.这篇博文的最后一百行左右,最后都已经写好了结果spacemacs卡住了,文件也没有保存,不是说好的auto-save呢.心情懊糟.重写之后和原来的有些差别,简略了挺多.比较不太明白的是为什么frog无法在markdown文件里面处理表格&lt;/p&gt;
 
-&lt;p&gt;| First Header | Second Header | | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | | Content Cell | Content Cell | | Content Cell | Content Cell |&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;| First Header | Second Header | | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | | Content Cell | Content Cell | | Content Cell | Content Cell |&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Racket ffi</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/18/racket-ffi/?utm_source=all&amp;utm_medium=Atom" />
@@ -2087,7 +2135,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
   <updated>2016-07-18T08:28:29Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt; _今天花了些时间了解了Racket的FFI用法,只是初步的了解.所谓的*FFI*是指 &lt;em&gt;foreign fuction interface&lt;/em&gt;.ok FFI让racket程序可以调用基于c的api而不用去写一行的c.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -2593,7 +2641,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;ok了,第一部分就这样.&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;ok了,第一部分就这样.&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">The difference between data and function</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/the-difference-between-data-and-function/?utm_source=all&amp;utm_medium=Atom" />
@@ -2602,7 +2650,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
   <updated>2016-07-17T09:05:26Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;&lt;!-- more--&gt;
+  <content type="html">&lt;!-- more--&gt;
 
 &lt;p&gt;其实我想说有时候过程和数据并没有什么区别(sometime)&lt;/p&gt;
 
@@ -2702,7 +2750,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
 
 &lt;p&gt;&lt;code&gt;first&lt;/code&gt;和&lt;code&gt;rest&lt;/code&gt;的设计也更加的奇特,将这个过程应用不同的值,就分别取了first和rest部分&lt;/p&gt;
 
-&lt;p&gt;在这里数据和函数被混淆了,数据真的是数据吗?数据和一个过程的区别在哪里? 第二个版本的实现也确实更加的优雅&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;在这里数据和函数被混淆了,数据真的是数据吗?数据和一个过程的区别在哪里? 第二个版本的实现也确实更加的优雅&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">system reinstall</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/system-reinstall/?utm_source=all&amp;utm_medium=Atom" />
@@ -2711,7 +2759,7 @@ GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;
   <updated>2016-07-17T08:53:10Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;h2 id="基本情况和要求介绍"&gt;基本情况和要求介绍&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -2848,7 +2896,7 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
 
 &lt;h2 id="结束语"&gt;结束语&lt;/h2&gt;
 
-&lt;p&gt;接下来就是各种软件的安装了(挺费时间的),把备份的资料拷到电脑里. 原本我是把ubuntu安装在机械盘上面,ubuntu随着我的升级折腾已经是千疮百孔.开机每次都要等两分半左右 而几乎千年不开机的windows占用着ssd,所以才有了这次的重装,目的就是稳定高效.可以让两个系统共享一个盘符 作为仓库盘,免去了重启切换系统的麻烦.有些软件在windows和ubuntu平台下的配置文件是通用的,可以把他们的工作路径也设置为同一个位置 这样就有了不同系统下一致同步的体验了.安装完成后ubuntu开机几乎10s之内,各种软件 丝滑流畅&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;接下来就是各种软件的安装了(挺费时间的),把备份的资料拷到电脑里. 原本我是把ubuntu安装在机械盘上面,ubuntu随着我的升级折腾已经是千疮百孔.开机每次都要等两分半左右 而几乎千年不开机的windows占用着ssd,所以才有了这次的重装,目的就是稳定高效.可以让两个系统共享一个盘符 作为仓库盘,免去了重启切换系统的麻烦.有些软件在windows和ubuntu平台下的配置文件是通用的,可以把他们的工作路径也设置为同一个位置 这样就有了不同系统下一致同步的体验了.安装完成后ubuntu开机几乎10s之内,各种软件 丝滑流畅&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Flatland</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/flatland/?utm_source=all&amp;utm_medium=Atom" />
@@ -2857,7 +2905,7 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
   <updated>2016-07-17T08:32:03Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;div class="figure"&gt;&lt;img src="/img/FlatLand.jpg" alt="a" /&gt;
  &lt;p class="caption"&gt;a&lt;/p&gt;&lt;/div&gt;
 
@@ -2880,7 +2928,7 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
 
 &lt;p&gt;本以为第二部分会用大量的篇幅去描绘,但是在书中的比重没有第一部分大.&lt;/p&gt;
 
-&lt;p&gt;这是一部映射现实一些问题的科幻小说.内容适量(一天就看完了)也值得一看。&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;这是一部映射现实一些问题的科幻小说.内容适量(一天就看完了)也值得一看。&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">vim italic</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/vim-italic/?utm_source=all&amp;utm_medium=Atom" />
@@ -2889,7 +2937,7 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
   <updated>2016-07-16T16:13:17Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;div class="figure"&gt;&lt;img src="/img/vim-italic.png" alt="vim-italic" /&gt;
  &lt;p class="caption"&gt;vim-italic&lt;/p&gt;&lt;/div&gt;
 &lt;!-- more--&gt;
@@ -2966,7 +3014,7 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;ok,so nice :)&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;ok,so nice :)&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">test about url</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/test-about-url/?utm_source=all&amp;utm_medium=Atom" />
@@ -2975,9 +3023,9 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
   <updated>2016-07-16T16:01:10Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&amp;hellip; 测试ubuntu的chrome无法正常的访问,同样的url换到firefox就可以了&lt;/p&gt;
-&lt;!-- more--&gt;&lt;/html&gt;</content></entry>
+&lt;!-- more--&gt;</content></entry>
  <entry>
   <title type="text">测试中文字符</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/16/测试中文字符/?utm_source=all&amp;utm_medium=Atom" />
@@ -2986,9 +3034,9 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
   <updated>2016-07-16T15:56:02Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;
-&lt;!-- more--&gt;&lt;/html&gt;</content></entry>
+&lt;!-- more--&gt;</content></entry>
  <entry>
   <title type="text">A 2012 blog post</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2012/01/01/a-2012-blog-post/?utm_source=all&amp;utm_medium=Atom" />
@@ -2997,7 +3045,7 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
   <updated>2011-12-31T16:00:00Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;Here is an example blog post.&lt;/p&gt;
 
 &lt;p&gt;Everything after this paragraph &amp;ldquo;after the break&amp;rdquo;. On index pages and Atom feeds, it will become &amp;ldquo;Continue reading&amp;hellip;&amp;rdquo;, if you configure them to include only the summary &amp;ldquo;blurb&amp;rdquo; before the break.&lt;/p&gt;
@@ -3176,4 +3224,4 @@ function foo()
 &lt;div class="footnotes"&gt;
  &lt;ol&gt;
   &lt;li id="2012-01-01-a-2012-blog-post-footnote-1-definition" class="footnote-definition"&gt;
-   &lt;p&gt;Footnote definition.&amp;nbsp;&lt;a href="#2012-01-01-a-2012-blog-post-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/html&gt;</content></entry></feed>
+   &lt;p&gt;Footnote definition.&amp;nbsp;&lt;a href="#2012-01-01-a-2012-blog-post-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content></entry></feed>
