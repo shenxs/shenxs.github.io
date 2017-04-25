@@ -1,5 +1,4 @@
 http://shenxs.github.io/blog/2016/07/17/vim-italic/
-http://shenxs.github.io/blog/2017/04/25/hello/
 http://shenxs.github.io/blog/2016/10/06/raspberry-pi-gpio/
 http://shenxs.github.io/blog/2016/07/22/racket-ffi-3/
 http://shenxs.github.io/blog/2016/07/17/system-reinstall/
