@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ @ Here: Posts tagged '斜体'</title>
+ <title type="text">Mr.λ 的牢骚: Posts tagged '斜体'</title>
  <link rel="self" href="http://shenxs.github.io/feeds/斜体.atom.xml" />
  <link href="http://shenxs.github.io/tags/斜体.html" />
  <id>urn:http-shenxs-github-io:-tags-斜体-html</id>
@@ -13,7 +13,7 @@
   <updated>2016-07-16T16:13:17Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;div class="figure"&gt;&lt;img src="/img/vim-italic.png" alt="vim-italic" /&gt;
  &lt;p class="caption"&gt;vim-italic&lt;/p&gt;&lt;/div&gt;
 &lt;!-- more--&gt;
@@ -90,4 +90,4 @@
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;ok,so nice :)&lt;/p&gt;&lt;/html&gt;</content></entry></feed>
+&lt;p&gt;ok,so nice :)&lt;/p&gt;</content></entry></feed>

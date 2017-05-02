@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>Mr.λ @ Here: Posts tagged 'bar'</title>
-  <description>Mr.λ @ Here: Posts tagged 'bar'</description>
+  <title>Mr.λ 的牢骚: Posts tagged 'bar'</title>
+  <description>Mr.λ 的牢骚: Posts tagged 'bar'</description>
   <link>http://shenxs.github.io/tags/bar.html</link>
   <lastBuildDate>Sat, 31 Dec 2011 16:00:00 UT</lastBuildDate>
   <pubDate>Sat, 31 Dec 2011 16:00:00 UT</pubDate>
@@ -10,9 +10,10 @@
   <item>
    <title>A 2012 blog post</title>
    <link>http://shenxs.github.io/blog/2012/01/01/a-2012-blog-post/?utm_source=bar&amp;utm_medium=RSS</link>
-   <guid>urn:http-shenxs-github-io:-blog-2012-01-01-a-2012-blog-post</guid>
+   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2012-01-01-a-2012-blog-post</guid>
    <pubDate>Sat, 31 Dec 2011 16:00:00 UT</pubDate>
-   <description>&lt;html&gt;
+   <author>Mr.λ</author>
+   <description>
 &lt;p&gt;Here is an example blog post.&lt;/p&gt;
 
 &lt;p&gt;Everything after this paragraph &amp;ldquo;after the break&amp;rdquo;. On index pages and Atom feeds, it will become &amp;ldquo;Continue reading&amp;hellip;&amp;rdquo;, if you configure them to include only the summary &amp;ldquo;blurb&amp;rdquo; before the break.&lt;/p&gt;
@@ -191,4 +192,4 @@ function foo()
 &lt;div class="footnotes"&gt;
  &lt;ol&gt;
   &lt;li id="2012-01-01-a-2012-blog-post-footnote-1-definition" class="footnote-definition"&gt;
-   &lt;p&gt;Footnote definition.&amp;nbsp;&lt;a href="#2012-01-01-a-2012-blog-post-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/html&gt;</description></item></channel></rss>
+   &lt;p&gt;Footnote definition.&amp;nbsp;&lt;a href="#2012-01-01-a-2012-blog-post-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</description></item></channel></rss>

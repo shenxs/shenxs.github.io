@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>Mr.λ @ Here: Posts tagged '重装'</title>
-  <description>Mr.λ @ Here: Posts tagged '重装'</description>
+  <title>Mr.λ 的牢骚: Posts tagged '重装'</title>
+  <description>Mr.λ 的牢骚: Posts tagged '重装'</description>
   <link>http://shenxs.github.io/tags/重装.html</link>
   <lastBuildDate>Sun, 17 Jul 2016 08:53:10 UT</lastBuildDate>
   <pubDate>Sun, 17 Jul 2016 08:53:10 UT</pubDate>
@@ -10,9 +10,10 @@
   <item>
    <title>system reinstall</title>
    <link>http://shenxs.github.io/blog/2016/07/17/system-reinstall/?utm_source=重装&amp;utm_medium=RSS</link>
-   <guid>urn:http-shenxs-github-io:-blog-2016-07-17-system-reinstall</guid>
+   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2016-07-17-system-reinstall</guid>
    <pubDate>Sun, 17 Jul 2016 08:53:10 UT</pubDate>
-   <description>&lt;html&gt;
+   <author>Mr.λ</author>
+   <description>
 &lt;h2 id="基本情况和要求介绍"&gt;基本情况和要求介绍&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -149,4 +150,4 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
 
 &lt;h2 id="结束语"&gt;结束语&lt;/h2&gt;
 
-&lt;p&gt;接下来就是各种软件的安装了(挺费时间的),把备份的资料拷到电脑里. 原本我是把ubuntu安装在机械盘上面,ubuntu随着我的升级折腾已经是千疮百孔.开机每次都要等两分半左右 而几乎千年不开机的windows占用着ssd,所以才有了这次的重装,目的就是稳定高效.可以让两个系统共享一个盘符 作为仓库盘,免去了重启切换系统的麻烦.有些软件在windows和ubuntu平台下的配置文件是通用的,可以把他们的工作路径也设置为同一个位置 这样就有了不同系统下一致同步的体验了.安装完成后ubuntu开机几乎10s之内,各种软件 丝滑流畅&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;p&gt;接下来就是各种软件的安装了(挺费时间的),把备份的资料拷到电脑里. 原本我是把ubuntu安装在机械盘上面,ubuntu随着我的升级折腾已经是千疮百孔.开机每次都要等两分半左右 而几乎千年不开机的windows占用着ssd,所以才有了这次的重装,目的就是稳定高效.可以让两个系统共享一个盘符 作为仓库盘,免去了重启切换系统的麻烦.有些软件在windows和ubuntu平台下的配置文件是通用的,可以把他们的工作路径也设置为同一个位置 这样就有了不同系统下一致同步的体验了.安装完成后ubuntu开机几乎10s之内,各种软件 丝滑流畅&lt;/p&gt;</description></item></channel></rss>

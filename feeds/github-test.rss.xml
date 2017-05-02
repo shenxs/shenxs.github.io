@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>Mr.λ @ Here: Posts tagged 'github test'</title>
-  <description>Mr.λ @ Here: Posts tagged 'github test'</description>
+  <title>Mr.λ 的牢骚: Posts tagged 'github test'</title>
+  <description>Mr.λ 的牢骚: Posts tagged 'github test'</description>
   <link>http://shenxs.github.io/tags/github-test.html</link>
   <lastBuildDate>Sat, 16 Jul 2016 16:01:10 UT</lastBuildDate>
   <pubDate>Sat, 16 Jul 2016 16:01:10 UT</pubDate>
@@ -10,8 +10,9 @@
   <item>
    <title>test about url</title>
    <link>http://shenxs.github.io/blog/2016/07/17/test-about-url/?utm_source=github-test&amp;utm_medium=RSS</link>
-   <guid>urn:http-shenxs-github-io:-blog-2016-07-17-test-about-url</guid>
+   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2016-07-17-test-about-url</guid>
    <pubDate>Sat, 16 Jul 2016 16:01:10 UT</pubDate>
-   <description>&lt;html&gt;
+   <author>Mr.λ</author>
+   <description>
 &lt;p&gt;Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&amp;hellip; 测试ubuntu的chrome无法正常的访问,同样的url换到firefox就可以了&lt;/p&gt;
-&lt;!-- more--&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;!-- more--&gt;</description></item></channel></rss>

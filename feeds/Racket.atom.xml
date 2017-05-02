@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ @ Here: Posts tagged 'Racket'</title>
+ <title type="text">Mr.λ 的牢骚: Posts tagged 'Racket'</title>
  <link rel="self" href="http://shenxs.github.io/feeds/Racket.atom.xml" />
  <link href="http://shenxs.github.io/tags/Racket.html" />
  <id>urn:http-shenxs-github-io:-tags-Racket-html</id>
@@ -13,7 +13,7 @@
   <updated>2016-07-22T07:45:41Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;这是关于Racket的FFI的使用的第三篇讲解.在这篇博文中我们会涉及到一些底层的操作.包括指针,联合体和自定义的C数据类型.主要还是自定义类型,它可以让你在使用racket和c互交的时候进行抽象进而不需要了解具体的c语言的表现形式.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -1113,7 +1113,7 @@
             &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cairo-stroke&lt;/span&gt; &lt;span class="n"&gt;ctx&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;&lt;/html&gt;</content></entry>
+&lt;/div&gt;</content></entry>
  <entry>
   <title type="text">Racket FFI 2</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/21/racket-ffi-2/?utm_source=Racket&amp;utm_medium=Atom" />
@@ -1122,7 +1122,7 @@
   <updated>2016-07-21T07:44:45Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;这是Racket的FFI的第二部分,这次还是会使用Cairo作为调用对象会涉及到FFI使用的时候更多的关于参数的部分,自定义返回值和如何使用c的结构体&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -2045,7 +2045,7 @@
 
 &lt;p&gt;后记:换到spacemacs写,体验还不错,但是稳定性奇差无比感觉完全和vim无法比.复制黏贴会卡,间歇性卡死.这篇博文的最后一百行左右,最后都已经写好了结果spacemacs卡住了,文件也没有保存,不是说好的auto-save呢.心情懊糟.重写之后和原来的有些差别,简略了挺多.比较不太明白的是为什么frog无法在markdown文件里面处理表格&lt;/p&gt;
 
-&lt;p&gt;| First Header | Second Header | | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | | Content Cell | Content Cell | | Content Cell | Content Cell |&lt;/p&gt;&lt;/html&gt;</content></entry>
+&lt;p&gt;| First Header | Second Header | | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- | | Content Cell | Content Cell | | Content Cell | Content Cell |&lt;/p&gt;</content></entry>
  <entry>
   <title type="text">Racket ffi</title>
   <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/18/racket-ffi/?utm_source=Racket&amp;utm_medium=Atom" />
@@ -2054,7 +2054,7 @@
   <updated>2016-07-18T08:28:29Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt; _今天花了些时间了解了Racket的FFI用法,只是初步的了解.所谓的*FFI*是指 &lt;em&gt;foreign fuction interface&lt;/em&gt;.ok FFI让racket程序可以调用基于c的api而不用去写一行的c.&lt;/p&gt;
 &lt;!-- more--&gt;
 
@@ -2560,4 +2560,4 @@
 &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 &lt;/div&gt;
 
-&lt;p&gt;ok了,第一部分就这样.&lt;/p&gt;&lt;/html&gt;</content></entry></feed>
+&lt;p&gt;ok了,第一部分就这样.&lt;/p&gt;</content></entry></feed>

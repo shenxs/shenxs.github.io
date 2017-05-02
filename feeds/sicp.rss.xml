@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>Mr.λ @ Here: Posts tagged 'sicp'</title>
-  <description>Mr.λ @ Here: Posts tagged 'sicp'</description>
+  <title>Mr.λ 的牢骚: Posts tagged 'sicp'</title>
+  <description>Mr.λ 的牢骚: Posts tagged 'sicp'</description>
   <link>http://shenxs.github.io/tags/sicp.html</link>
   <lastBuildDate>Sun, 17 Jul 2016 09:05:26 UT</lastBuildDate>
   <pubDate>Sun, 17 Jul 2016 09:05:26 UT</pubDate>
@@ -10,9 +10,10 @@
   <item>
    <title>The difference between data and function</title>
    <link>http://shenxs.github.io/blog/2016/07/17/the-difference-between-data-and-function/?utm_source=sicp&amp;utm_medium=RSS</link>
-   <guid>urn:http-shenxs-github-io:-blog-2016-07-17-the-difference-between-data-and-function</guid>
+   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2016-07-17-the-difference-between-data-and-function</guid>
    <pubDate>Sun, 17 Jul 2016 09:05:26 UT</pubDate>
-   <description>&lt;html&gt;&lt;!-- more--&gt;
+   <author>Mr.λ</author>
+   <description>&lt;!-- more--&gt;
 
 &lt;p&gt;其实我想说有时候过程和数据并没有什么区别(sometime)&lt;/p&gt;
 
@@ -112,4 +113,4 @@
 
 &lt;p&gt;&lt;code&gt;first&lt;/code&gt;和&lt;code&gt;rest&lt;/code&gt;的设计也更加的奇特,将这个过程应用不同的值,就分别取了first和rest部分&lt;/p&gt;
 
-&lt;p&gt;在这里数据和函数被混淆了,数据真的是数据吗?数据和一个过程的区别在哪里? 第二个版本的实现也确实更加的优雅&lt;/p&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;p&gt;在这里数据和函数被混淆了,数据真的是数据吗?数据和一个过程的区别在哪里? 第二个版本的实现也确实更加的优雅&lt;/p&gt;</description></item></channel></rss>

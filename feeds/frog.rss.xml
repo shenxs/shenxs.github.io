@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>Mr.λ @ Here: Posts tagged 'frog'</title>
-  <description>Mr.λ @ Here: Posts tagged 'frog'</description>
+  <title>Mr.λ 的牢骚: Posts tagged 'frog'</title>
+  <description>Mr.λ 的牢骚: Posts tagged 'frog'</description>
   <link>http://shenxs.github.io/tags/frog.html</link>
   <lastBuildDate>Sat, 16 Jul 2016 15:56:02 UT</lastBuildDate>
   <pubDate>Sat, 16 Jul 2016 15:56:02 UT</pubDate>
@@ -10,8 +10,9 @@
   <item>
    <title>测试中文字符</title>
    <link>http://shenxs.github.io/blog/2016/07/16/测试中文字符/?utm_source=frog&amp;utm_medium=RSS</link>
-   <guid>urn:http-shenxs-github-io:-blog-2016-07-16-测试中文字符</guid>
+   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2016-07-16-测试中文字符</guid>
    <pubDate>Sat, 16 Jul 2016 15:56:02 UT</pubDate>
-   <description>&lt;html&gt;
+   <author>Mr.λ</author>
+   <description>
 &lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;
-&lt;!-- more--&gt;&lt;/html&gt;</description></item></channel></rss>
+&lt;!-- more--&gt;</description></item></channel></rss>

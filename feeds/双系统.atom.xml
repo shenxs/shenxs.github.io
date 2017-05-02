@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ @ Here: Posts tagged '双系统'</title>
+ <title type="text">Mr.λ 的牢骚: Posts tagged '双系统'</title>
  <link rel="self" href="http://shenxs.github.io/feeds/双系统.atom.xml" />
  <link href="http://shenxs.github.io/tags/双系统.html" />
  <id>urn:http-shenxs-github-io:-tags-双系统-html</id>
@@ -13,7 +13,7 @@
   <updated>2016-07-17T08:53:10Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;h2 id="基本情况和要求介绍"&gt;基本情况和要求介绍&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -150,4 +150,4 @@ XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
 
 &lt;h2 id="结束语"&gt;结束语&lt;/h2&gt;
 
-&lt;p&gt;接下来就是各种软件的安装了(挺费时间的),把备份的资料拷到电脑里. 原本我是把ubuntu安装在机械盘上面,ubuntu随着我的升级折腾已经是千疮百孔.开机每次都要等两分半左右 而几乎千年不开机的windows占用着ssd,所以才有了这次的重装,目的就是稳定高效.可以让两个系统共享一个盘符 作为仓库盘,免去了重启切换系统的麻烦.有些软件在windows和ubuntu平台下的配置文件是通用的,可以把他们的工作路径也设置为同一个位置 这样就有了不同系统下一致同步的体验了.安装完成后ubuntu开机几乎10s之内,各种软件 丝滑流畅&lt;/p&gt;&lt;/html&gt;</content></entry></feed>
+&lt;p&gt;接下来就是各种软件的安装了(挺费时间的),把备份的资料拷到电脑里. 原本我是把ubuntu安装在机械盘上面,ubuntu随着我的升级折腾已经是千疮百孔.开机每次都要等两分半左右 而几乎千年不开机的windows占用着ssd,所以才有了这次的重装,目的就是稳定高效.可以让两个系统共享一个盘符 作为仓库盘,免去了重启切换系统的麻烦.有些软件在windows和ubuntu平台下的配置文件是通用的,可以把他们的工作路径也设置为同一个位置 这样就有了不同系统下一致同步的体验了.安装完成后ubuntu开机几乎10s之内,各种软件 丝滑流畅&lt;/p&gt;</content></entry></feed>

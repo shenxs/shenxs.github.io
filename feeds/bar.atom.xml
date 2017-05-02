@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ @ Here: Posts tagged 'bar'</title>
+ <title type="text">Mr.λ 的牢骚: Posts tagged 'bar'</title>
  <link rel="self" href="http://shenxs.github.io/feeds/bar.atom.xml" />
  <link href="http://shenxs.github.io/tags/bar.html" />
  <id>urn:http-shenxs-github-io:-tags-bar-html</id>
@@ -13,7 +13,7 @@
   <updated>2011-12-31T16:00:00Z</updated>
   <author>
    <name>Mr.λ</name></author>
-  <content type="html">&lt;html&gt;
+  <content type="html">
 &lt;p&gt;Here is an example blog post.&lt;/p&gt;
 
 &lt;p&gt;Everything after this paragraph &amp;ldquo;after the break&amp;rdquo;. On index pages and Atom feeds, it will become &amp;ldquo;Continue reading&amp;hellip;&amp;rdquo;, if you configure them to include only the summary &amp;ldquo;blurb&amp;rdquo; before the break.&lt;/p&gt;
@@ -192,4 +192,4 @@ function foo()
 &lt;div class="footnotes"&gt;
  &lt;ol&gt;
   &lt;li id="2012-01-01-a-2012-blog-post-footnote-1-definition" class="footnote-definition"&gt;
-   &lt;p&gt;Footnote definition.&amp;nbsp;&lt;a href="#2012-01-01-a-2012-blog-post-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;/html&gt;</content></entry></feed>
+   &lt;p&gt;Footnote definition.&amp;nbsp;&lt;a href="#2012-01-01-a-2012-blog-post-footnote-1-return"&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;</content></entry></feed>

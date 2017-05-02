@@ -11,3 +11,8 @@ pre {
     white-space: pre;
     width: inherit;
 }
+
+article {
+    padding-bottom: 18px;
+    border-bottom: 2px dashed #ccc;
+}
