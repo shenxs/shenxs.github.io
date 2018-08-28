@@ -1,116 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ 的牢骚: Posts tagged 'scheme'</title>
- <link rel="self" href="http://shenxs.github.io/feeds/scheme.atom.xml" />
- <link href="http://shenxs.github.io/tags/scheme.html" />
- <id>urn:http-shenxs-github-io:-tags-scheme-html</id>
+ <title type="text">My Blog: Posts tagged 'scheme'</title>
+ <link rel="self" href="http://www.example.com/feeds/scheme.atom.xml" />
+ <link href="http://www.example.com/tags/scheme.html" />
+ <id>urn:http-www-example-com:-tags-scheme-html</id>
  <updated>2016-07-17T09:05:26Z</updated>
  <entry>
   <title type="text">The difference between data and function</title>
-  <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/the-difference-between-data-and-function/?utm_source=scheme&amp;utm_medium=Atom" />
-  <id>urn:http-shenxs-github-io:-blog-2016-07-17-the-difference-between-data-and-function</id>
+  <link rel="alternate" href="http://www.example.com/2016/07/the-difference-between-data-and-function.html?utm_source=scheme&amp;utm_medium=Atom" />
+  <id>urn:http-www-example-com:-2016-07-the-difference-between-data-and-function-html</id>
   <published>2016-07-17T09:05:26Z</published>
   <updated>2016-07-17T09:05:26Z</updated>
   <author>
-   <name>Mr.λ</name></author>
-  <content type="html">&lt;!-- more--&gt;
-
-&lt;p&gt;其实我想说有时候过程和数据并没有什么区别(sometime)&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;例如&lt;/strong&gt; &lt;code&gt;racket
-(define A (cons 1 (cons 2 (cons 3))))&lt;/code&gt; 定义了一个&lt;code&gt;list&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;你会把&lt;code&gt;A&lt;/code&gt;看作是一个数据,他里面放着一些数字,1 2 3&lt;/p&gt;
-
-&lt;p&gt;如果我们自己来实现&lt;code&gt;cons&lt;/code&gt;,&lt;code&gt;frist&lt;/code&gt;(or &lt;code&gt;car&lt;/code&gt;),&lt;code&gt;rest&lt;/code&gt;(or &lt;code&gt;cdr&lt;/code&gt;). 我们也许会使用如下的定义&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define-struct.html#(form._((lib._racket/private/base..rkt)._define-struct))" style="color: inherit"&gt;define-struct&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;pair&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;left&lt;/span&gt; &lt;span class="n"&gt;right&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;our_cons?&lt;/span&gt; &lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/pairs.html#(def._((quote._~23~25kernel)._pair~3f))" style="color: inherit"&gt;pair?&lt;/a&gt;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;our_cons&lt;/span&gt; &lt;span class="n"&gt;a_value&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/if.html#(form._((lib._racket/private/letstx-scheme..rkt)._cond))" style="color: inherit"&gt;cond&lt;/a&gt;&lt;/span&gt;
-    &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._empty~3f))" style="color: inherit"&gt;empty?&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make-pair&lt;/span&gt; &lt;span class="n"&gt;a_value&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-    &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="n"&gt;our_cons?&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make-pair&lt;/span&gt; &lt;span class="n"&gt;a_value&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/if.html#(form._((lib._racket/private/letstx-scheme..rkt)._else))" style="color: inherit"&gt;else&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/exns.html#(def._((quote._~23~25kernel)._error))" style="color: inherit"&gt;error&lt;/a&gt;&lt;/span&gt; &lt;span class="s2"&gt;"第二个参数应该是一个list"&lt;/span&gt;&lt;span class="p"&gt;)]))&lt;/span&gt;
-
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;our_first&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/if.html#(form._((lib._racket/private/letstx-scheme..rkt)._cond))" style="color: inherit"&gt;cond&lt;/a&gt;&lt;/span&gt;
-    &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._empty~3f))" style="color: inherit"&gt;empty?&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/exns.html#(def._((quote._~23~25kernel)._error))" style="color: inherit"&gt;error&lt;/a&gt;&lt;/span&gt; &lt;span class="o"&gt;'&lt;/span&gt;&lt;span class="ss"&gt;a_list&lt;/span&gt; &lt;span class="s2"&gt;"不能为空"&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/if.html#(form._((lib._racket/private/letstx-scheme..rkt)._else))" style="color: inherit"&gt;else&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pair-left&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)]))&lt;/span&gt;
-
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;our_rest&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/if.html#(form._((lib._racket/private/letstx-scheme..rkt)._cond))" style="color: inherit"&gt;cond&lt;/a&gt;&lt;/span&gt;
-    &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/pairs.html#(def._((lib._racket/list..rkt)._empty~3f))" style="color: inherit"&gt;empty?&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/exns.html#(def._((quote._~23~25kernel)._error))" style="color: inherit"&gt;error&lt;/a&gt;&lt;/span&gt; &lt;span class="o"&gt;'&lt;/span&gt;&lt;span class="ss"&gt;a_list&lt;/span&gt; &lt;span class="s2"&gt;"不能为空"&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
-    &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/if.html#(form._((lib._racket/private/letstx-scheme..rkt)._else))" style="color: inherit"&gt;else&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pair-right&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)]))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;以上数据就是数据,&lt;code&gt;our_first&lt;/code&gt;,&lt;code&gt;our_rest&lt;/code&gt;,&lt;code&gt;our_cons&lt;/code&gt;都是动作,这些函数所产生的就是数据&lt;/p&gt;
-
-&lt;p&gt;我们来看另一种实现&lt;/p&gt;
-
-&lt;div class="brush: racket"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_cons&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/lambda.html#(form._((lib._racket/private/base..rkt)._~ce~bb))" style="color: inherit"&gt;λ&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;choose&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-     &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/if.html#(form._((lib._racket/private/letstx-scheme..rkt)._cond))" style="color: inherit"&gt;cond&lt;/a&gt;&lt;/span&gt;
-       &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="nb"&gt;&lt;a href="http://docs.racket-lang.org/reference/generic-numbers.html#(def._((quote._~23~25kernel)._~3d))" style="color: inherit"&gt;=&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;choose&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-       &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/if.html#(form._((lib._racket/private/letstx-scheme..rkt)._else))" style="color: inherit"&gt;else&lt;/a&gt;&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;])))&lt;/span&gt;
-
-
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_first&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_list&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;&lt;a href="http://docs.racket-lang.org/reference/define.html#(form._((lib._racket/private/base..rkt)._define))" style="color: inherit"&gt;define&lt;/a&gt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;my_rest&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_list&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这里就不一样了,你以为 &lt;code&gt;racket
-(my_cons 'a 'b)&lt;/code&gt; 会的到一个数据,实际上他返回的是一个函数(也就是说是一个过程)&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;first&lt;/code&gt;和&lt;code&gt;rest&lt;/code&gt;的设计也更加的奇特,将这个过程应用不同的值,就分别取了first和rest部分&lt;/p&gt;
-
-&lt;p&gt;在这里数据和函数被混淆了,数据真的是数据吗?数据和一个过程的区别在哪里? 第二个版本的实现也确实更加的优雅&lt;/p&gt;</content></entry></feed>
+   <name>The Unknown Author</name></author>
+  <content type="html">&lt;a href="http://www.example.com/2016/07/the-difference-between-data-and-function.html?utm_source=scheme&amp;amp;utm_medium=Atom"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</content></entry></feed>

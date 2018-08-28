@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <title>system reinstall</title>
+        <meta name="description" content="基本情况和要求介绍:   双硬盘,一块128G的ssd,一块500G的机械硬盘 8G内存   N卡加intel集显   最后要求双系统,Ubuntu14.04LTS + Windows10...">
+        <meta name="author"      content="The Unknown Author">
+        <meta name="keywords"    content="重装, 双系统, ubuntu, windows10, ssd, 混合硬盘">
+        <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+        <link rel="icon"      href="/favicon.ico">
+        <link rel="canonical" href="http://www.example.com/2016/07/system-reinstall.html">
+        <link rel="next" href="/2016/07/flatland.html">
+        <link rel="prev" href="/2016/07/the-difference-between-data-and-function.html">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+        <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+        <!-- Feeds -->
+        <link rel="alternate" type="application/atom+xml"
+                              href="/feeds/all.atom.xml" title="Atom Feed">
+        <link rel="alternate" type="application/rss+xml"
+                              href="/feeds/all.rss.xml" title="RSS Feed">
+        <!-- JS -->
+        <script type="text/javascript">
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-xxxxx', 'auto');
+          ga('send', 'pageview');
+        </script>
+        <!-- Theme CSS -->
+        <link href="css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        <!-- A standard Twitter Bootstrap nav bar -->
+        <header class="navbar navbar-default navbar-inverse"
+                role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button"
+                            class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target=".our-nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/index.html" class="navbar-brand">主页</a>
+                </div>
+                <div class="collapse navbar-collapse our-nav-collapse"
+                     role="navigation">
+                    <ul class="nav navbar-nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Tags <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/index.html">所有文章</a></li>
+
+<li><a href="/tags/bar.html">bar</a></li>
+
+<li><a href="/tags/baz.html">baz</a></li>
+
+<li><a href="/tags/caffe.html">caffe</a></li>
+
+<li><a href="/tags/cudnn.html">cudnn</a></li>
+
+<li><a href="/tags/FFI.html">FFI</a></li>
+
+<li><a href="/tags/foo.html">foo</a></li>
+
+<li><a href="/tags/frog.html">frog</a></li>
+
+<li><a href="/tags/github-test.html">github test</a></li>
+
+<li><a href="/tags/racket.html">racket</a></li>
+
+<li><a href="/tags/Racket.html">Racket</a></li>
+
+<li><a href="/tags/Raspberry.html">Raspberry</a></li>
+
+<li><a href="/tags/scheme.html">scheme</a></li>
+
+<li><a href="/tags/sicp.html">sicp</a></li>
+
+<li><a href="/tags/ssd.html">ssd</a></li>
+
+<li><a href="/tags/tag-with-spaces.html">tag with spaces</a></li>
+
+<li><a href="/tags/ubuntu.html">ubuntu</a></li>
+
+<li><a href="/tags/vim.html">vim</a></li>
+
+<li><a href="/tags/windows10.html">windows10</a></li>
+
+<li><a href="/tags/%E4%BD%93%E4%BC%9A.html">体会;</a></li>
+
+<li><a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F.html">双系统</a></li>
+
+<li><a href="/tags/%E5%B9%B3%E9%9D%A2%E5%9B%BD.html">平面国</a></li>
+
+<li><a href="/tags/%E6%96%9C%E4%BD%93.html">斜体</a></li>
+
+<li><a href="/tags/%E6%B3%A8%E9%87%8A.html">注释</a></li>
+
+<li><a href="/tags/%E6%B7%B7%E5%90%88%E7%A1%AC%E7%9B%98.html">混合硬盘</a></li>
+
+<li><a href="/tags/%E8%AF%BB%E8%AE%B0.html">读记</a></li>
+
+<li><a href="/tags/%E9%87%8D%E8%A3%85.html">重装</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/About.html">关于我</a>
+                        </li> 
+                        <li><a href="/feeds/all.atom.xml">Atom</a></li>
+                        <li><a href="/feeds/all.rss.xml">RSS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+
+                <!-- Main column -->
+                <div id="content" class="col-md-12">
+
+
+
+
+
+                    <article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>system reinstall</h1>
+                    <p class='date-and-tags'>
+<time datetime="2016-07-17" pubdate="true">2016-07-17</time> :: <span class="tags"><a href="/tags/%E9%87%8D%E8%A3%85.html">重装</a>, <a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F.html">双系统</a>, <a href="/tags/ubuntu.html">ubuntu</a>, <a href="/tags/windows10.html">windows10</a>, <a href="/tags/ssd.html">ssd</a>, <a href="/tags/%E6%B7%B7%E5%90%88%E7%A1%AC%E7%9B%98.html">混合硬盘</a></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+<h2 id="基本情况和要求介绍">基本情况和要求介绍</h2>
+
+<ul>
+ <li>双硬盘,一块128G的ssd,一块500G的机械硬盘</li>
+ <li>8G内存</li>
+ <li>N卡加intel集显</li>
+ <li>最后要求双系统,Ubuntu14.04LTS + Windows10</li></ul>
+<!-- more-->
+
+<h2 id="安装准备">安装准备</h2>
+
+<ul>
+ <li>两个u盘,刻好windows和ubuntu的镜像文件</li>
+ <li>备份好你的重要资料</li>
+ <li>将bios设置为u盘启动</li>
+ <li>bios中SATA Configuration设置为AHCI</li></ul>
+
+<h2 id="安装windows">安装windows</h2>
+
+<p>由于之前安装过windows10并且是正版激活的所以并不需要密匙.  安装的时候把所有的盘全部格掉(为了ssd的4k对齐),  我在ssd上分了40G给windows,作为c盘.  机械盘划了100G作为软件安装盘(windows10从软件商店上安装的软件可以从系统设置为安装到其他的盘)  机械盘再划100G作为仓库盘(这个盘是windows和ubuntu共用的用来储存资料,在两个系统之间共享文件)  以上所有的盘都采用NTFS格式</p>
+
+<h2 id="安装ubuntu">安装Ubuntu</h2>
+
+<p>将SSD剩下所有的容量都分给ubuntu.安装的时候注意选择自定义  分区如下</p>
+
+<pre><code>-   1G /boot
+-   40G /
+-   剩下的划给/home
+-   还在机械上划了8G用作swap(似乎没什么必要)
+以上除了swap.所有的盘符采用EXT4格式,将home单独挂在可以方便将来重装</code></pre>
+
+<h2 id="配置windows">配置windows</h2>
+
+<ul>
+ <li>安装驱动,基本win10自己就可以帮你做好了</li>
+ <li>从电源管理中,将快速启动关闭,已经将系统装在SSD上面所以开机速度基本没有太大差别(这么做是为了让ubuntu能够挂载windows的分区)</li>
+ <li>将windows的安装设置设置到机械硬盘</li>
+ <li>将默认的下载,文档,音乐,..都设置为另一个机械盘分区里面的相应文件夹</li></ul>
+
+<h2 id="配置ubuntu">配置ubuntu</h2>
+
+<ul>
+ <li>
+  <h2 id="n卡驱动的安装">N卡驱动的安装</h2></li></ul>
+
+<p>&mdash; 1,添加Graphic Drivers PPA</p>
+
+<div class="brush: shell">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span>sudo add-apt-repository ppa:graphics-drivers/ppa
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>&mdash; 2,更新或安装最新Nvidia驱动程序</p>
+
+<div class="brush: shell">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre>1</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install nvidia-355
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>这已经是我知道的最简单的方法了,linux的驱动问题一直都挺让我头痛的.这样安装完成之后在我的机器上 会导致开机默认亮度最大,fn+热键无法调节亮度</p>
+
+<ul>
+ <li>
+  <h3 id="优化ssd">优化SSD</h3>
+  <p>可以参考以下<a href="sites.google.com/site/easylinuxtipsproject/ssd#TOC-Avoid-quick-wear:-reduce-write-actions">文章</a></p></li>
+ <li>
+  <h3 id="自动挂载">自动挂载</h3>
+  <p>使用ubuntu自带的磁盘管理工具将仓库盘设置为开机自动挂在,挂载点记得选择挂在到/media/你的用户名/盘名 我的挂载点是/media/richard/EECC1B6ACC1B2C79/</p></li>
+ <li>
+  <h3 id="修改默认路径">修改默认路径</h3>
+  <p>修改~/.config/user-dirs.dirs 文件以下是我的配置文件</p></li></ul>
+
+<div class="brush: txt">
+ <table class="sourcetable">
+  <tbody>
+   <tr>
+    <td class="linenos">
+     <div class="linenodiv">
+      <pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td>
+    <td class="code">
+     <div class="source">
+      <pre><span></span># This file is written by xdg-user-dirs-update
+# If you want to change or add directories, just edit the line you&#39;re
+# interested in. All local changes will be retained on the next run
+# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
+# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
+# absolute path. No other format is supported.
+#
+XDG_DESKTOP_DIR="$HOME/桌面"
+XDG_DOWNLOAD_DIR="/media/richard/EECC1B6ACC1B2C79/下载"
+XDG_TEMPLATES_DIR="$HOME/模板"
+XDG_PUBLICSHARE_DIR="$HOME/公共的"
+XDG_DOCUMENTS_DIR="/media/richard/EECC1B6ACC1B2C79/文档"
+XDG_MUSIC_DIR="/media/richard/EECC1B6ACC1B2C79/音乐"
+XDG_PICTURES_DIR="/media/richard/EECC1B6ACC1B2C79/图片"
+XDG_VIDEOS_DIR="/media/richard/EECC1B6ACC1B2C79/视频"
+</pre></div>
+</td></tr></tbody></table>
+</div>
+
+<p>你可以参考并修改为自己相应的机械硬盘的位置(即我们之前分出来用作仓库盘的地方) 这样ubuntu的默认的下载,文档,音乐等等的位置就和windows在同一个物理位置了</p>
+
+<h2 id="结束语">结束语</h2>
+
+<p>接下来就是各种软件的安装了(挺费时间的),把备份的资料拷到电脑里. 原本我是把ubuntu安装在机械盘上面,ubuntu随着我的升级折腾已经是千疮百孔.开机每次都要等两分半左右 而几乎千年不开机的windows占用着ssd,所以才有了这次的重装,目的就是稳定高效.可以让两个系统共享一个盘符 作为仓库盘,免去了重启切换系统的麻烦.有些软件在windows和ubuntu平台下的配置文件是通用的,可以把他们的工作路径也设置为同一个位置 这样就有了不同系统下一致同步的体验了.安装完成后ubuntu开机几乎10s之内,各种软件 丝滑流畅</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <script type="text/javascript">
+          !function(d,s,id){
+              var js,fjs=d.getElementsByTagName(s)[0];
+              if(!d.getElementById(id)){
+                  js=d.createElement(s);
+                  js.id=id;
+                  js.src="//platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js,fjs);
+              }
+          }(document,"script","twitter-wjs");
+        </script>
+        <a href="https://twitter.com/share"
+           class="twitter-share-button"
+           data-url="http://www.example.com/2016/07/system-reinstall.html"
+           data-dnt="true">
+          "Tweet"</a>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <g:plusone size="medium" href="http://www.example.com/2016/07/system-reinstall.html"></g:plusone>
+        <script type="text/javascript">
+          var disqus_shortname = 'shortname';
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript';
+              dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <div id="disqus_thread"></div>
+        <ul class="pager">
+        <li class="previous">
+          <a href="/2016/07/the-difference-between-data-and-function.html">&larr; <em>The difference between data and function</em></a>
+        </li>
+        <li class="next">
+          <a href="/2016/07/flatland.html"><em>Flatland</em> &rarr;</a>
+        </li>
+        </ul>
+    </footer>
+</article>
+                </div>
+            </div>
+            <footer>
+                <hr />
+                <p>由<a href="https://github.com/greghendershott/frog">Frog</a>强力驱动,
+                the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+                <p><em>Program is just another name of the lost art of thinking</em>.</p>
+            </footer>
+        </div>
+        <!-- </body> JS -->
+        <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        </body>
+</html>

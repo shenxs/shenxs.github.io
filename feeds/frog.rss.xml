@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>Mr.λ 的牢骚: Posts tagged 'frog'</title>
-  <description>Mr.λ 的牢骚: Posts tagged 'frog'</description>
-  <link>http://shenxs.github.io/tags/frog.html</link>
+  <title>My Blog: Posts tagged 'frog'</title>
+  <description>My Blog: Posts tagged 'frog'</description>
+  <link>http://www.example.com/tags/frog.html</link>
   <lastBuildDate>Sat, 16 Jul 2016 15:56:02 UT</lastBuildDate>
   <pubDate>Sat, 16 Jul 2016 15:56:02 UT</pubDate>
   <ttl>1800</ttl>
   <item>
    <title>测试中文字符</title>
-   <link>http://shenxs.github.io/blog/2016/07/16/测试中文字符/?utm_source=frog&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2016-07-16-测试中文字符</guid>
+   <link>http://www.example.com/2016/07/%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6.html?utm_source=frog&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-www-example-com:-2016-07-E6-B5-8B-E8-AF-95-E4-B8-AD-E6-96-87-E5-AD-97-E7-AC-A6-html</guid>
    <pubDate>Sat, 16 Jul 2016 15:56:02 UT</pubDate>
-   <author>Mr.λ</author>
+   <author>The Unknown Author</author>
    <description>
-&lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;
-&lt;!-- more--&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;&lt;a href="http://www.example.com/2016/07/%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6.html?utm_source=frog&amp;amp;utm_medium=RSS"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</description></item></channel></rss>

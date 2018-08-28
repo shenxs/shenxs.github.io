@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ 的牢骚: Posts tagged 'github test'</title>
- <link rel="self" href="http://shenxs.github.io/feeds/github-test.atom.xml" />
- <link href="http://shenxs.github.io/tags/github-test.html" />
- <id>urn:http-shenxs-github-io:-tags-github-test-html</id>
+ <title type="text">My Blog: Posts tagged 'github test'</title>
+ <link rel="self" href="http://www.example.com/feeds/github-test.atom.xml" />
+ <link href="http://www.example.com/tags/github-test.html" />
+ <id>urn:http-www-example-com:-tags-github-test-html</id>
  <updated>2016-07-16T16:01:10Z</updated>
  <entry>
   <title type="text">test about url</title>
-  <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/17/test-about-url/?utm_source=github-test&amp;utm_medium=Atom" />
-  <id>urn:http-shenxs-github-io:-blog-2016-07-17-test-about-url</id>
+  <link rel="alternate" href="http://www.example.com/2016/07/test-about-url.html?utm_source=github-test&amp;utm_medium=Atom" />
+  <id>urn:http-www-example-com:-2016-07-test-about-url-html</id>
   <published>2016-07-16T16:01:10Z</published>
   <updated>2016-07-16T16:01:10Z</updated>
   <author>
-   <name>Mr.λ</name></author>
+   <name>The Unknown Author</name></author>
   <content type="html">
-&lt;p&gt;Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&amp;hellip; 测试ubuntu的chrome无法正常的访问,同样的url换到firefox就可以了&lt;/p&gt;
-&lt;!-- more--&gt;</content></entry></feed>
+&lt;p&gt;Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&amp;hellip; 测试ubuntu的chrome无法正常的访问,同样的url换到firefox就可以了&lt;/p&gt;&lt;a href="http://www.example.com/2016/07/test-about-url.html?utm_source=github-test&amp;amp;utm_medium=Atom"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</content></entry></feed>

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>Mr.λ 的牢骚: Posts tagged 'github test'</title>
-  <description>Mr.λ 的牢骚: Posts tagged 'github test'</description>
-  <link>http://shenxs.github.io/tags/github-test.html</link>
+  <title>My Blog: Posts tagged 'github test'</title>
+  <description>My Blog: Posts tagged 'github test'</description>
+  <link>http://www.example.com/tags/github-test.html</link>
   <lastBuildDate>Sat, 16 Jul 2016 16:01:10 UT</lastBuildDate>
   <pubDate>Sat, 16 Jul 2016 16:01:10 UT</pubDate>
   <ttl>1800</ttl>
   <item>
    <title>test about url</title>
-   <link>http://shenxs.github.io/blog/2016/07/17/test-about-url/?utm_source=github-test&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2016-07-17-test-about-url</guid>
+   <link>http://www.example.com/2016/07/test-about-url.html?utm_source=github-test&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-www-example-com:-2016-07-test-about-url-html</guid>
    <pubDate>Sat, 16 Jul 2016 16:01:10 UT</pubDate>
-   <author>Mr.λ</author>
+   <author>The Unknown Author</author>
    <description>
-&lt;p&gt;Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&amp;hellip; 测试ubuntu的chrome无法正常的访问,同样的url换到firefox就可以了&lt;/p&gt;
-&lt;!-- more--&gt;</description></item></channel></rss>
+&lt;p&gt;Github page 似乎不支持在uri中存在中文,之前可以用的,为什么又不可以了&amp;hellip; 测试ubuntu的chrome无法正常的访问,同样的url换到firefox就可以了&lt;/p&gt;&lt;a href="http://www.example.com/2016/07/test-about-url.html?utm_source=github-test&amp;amp;utm_medium=RSS"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</description></item></channel></rss>

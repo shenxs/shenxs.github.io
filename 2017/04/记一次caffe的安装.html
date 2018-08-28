@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <title>记一次Caffe的安装</title>
+        <meta name="description" content="运河杯需要所以要安装Caffe框架用于图像识别,记录一下遇到的坑...">
+        <meta name="author"      content="The Unknown Author">
+        <meta name="keywords"    content="caffe, cudnn">
+        <meta name="viewport"    content="width=device-width, initial-scale=1.0">
+        <link rel="icon"      href="/favicon.ico">
+        <link rel="canonical" href="http://www.example.com/2017/04/%E8%AE%B0%E4%B8%80%E6%AC%A1caffe%E7%9A%84%E5%AE%89%E8%A3%85.html">
+        <link rel="next" href="/2016/10/raspberry-pi-timer.html">
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/pygments.css">
+        <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+        <link rel="stylesheet" type="text/css" href="/css/custom.css">
+        <!-- Feeds -->
+        <link rel="alternate" type="application/atom+xml"
+                              href="/feeds/all.atom.xml" title="Atom Feed">
+        <link rel="alternate" type="application/rss+xml"
+                              href="/feeds/all.rss.xml" title="RSS Feed">
+        <!-- JS -->
+        <script type="text/javascript">
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-xxxxx', 'auto');
+          ga('send', 'pageview');
+        </script>
+        <!-- Theme CSS -->
+        <link href="css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+        <!-- A standard Twitter Bootstrap nav bar -->
+        <header class="navbar navbar-default navbar-inverse"
+                role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button"
+                            class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target=".our-nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/index.html" class="navbar-brand">主页</a>
+                </div>
+                <div class="collapse navbar-collapse our-nav-collapse"
+                     role="navigation">
+                    <ul class="nav navbar-nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Tags <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/index.html">所有文章</a></li>
+
+<li><a href="/tags/bar.html">bar</a></li>
+
+<li><a href="/tags/baz.html">baz</a></li>
+
+<li><a href="/tags/caffe.html">caffe</a></li>
+
+<li><a href="/tags/cudnn.html">cudnn</a></li>
+
+<li><a href="/tags/FFI.html">FFI</a></li>
+
+<li><a href="/tags/foo.html">foo</a></li>
+
+<li><a href="/tags/frog.html">frog</a></li>
+
+<li><a href="/tags/github-test.html">github test</a></li>
+
+<li><a href="/tags/racket.html">racket</a></li>
+
+<li><a href="/tags/Racket.html">Racket</a></li>
+
+<li><a href="/tags/Raspberry.html">Raspberry</a></li>
+
+<li><a href="/tags/scheme.html">scheme</a></li>
+
+<li><a href="/tags/sicp.html">sicp</a></li>
+
+<li><a href="/tags/ssd.html">ssd</a></li>
+
+<li><a href="/tags/tag-with-spaces.html">tag with spaces</a></li>
+
+<li><a href="/tags/ubuntu.html">ubuntu</a></li>
+
+<li><a href="/tags/vim.html">vim</a></li>
+
+<li><a href="/tags/windows10.html">windows10</a></li>
+
+<li><a href="/tags/%E4%BD%93%E4%BC%9A.html">体会;</a></li>
+
+<li><a href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F.html">双系统</a></li>
+
+<li><a href="/tags/%E5%B9%B3%E9%9D%A2%E5%9B%BD.html">平面国</a></li>
+
+<li><a href="/tags/%E6%96%9C%E4%BD%93.html">斜体</a></li>
+
+<li><a href="/tags/%E6%B3%A8%E9%87%8A.html">注释</a></li>
+
+<li><a href="/tags/%E6%B7%B7%E5%90%88%E7%A1%AC%E7%9B%98.html">混合硬盘</a></li>
+
+<li><a href="/tags/%E8%AF%BB%E8%AE%B0.html">读记</a></li>
+
+<li><a href="/tags/%E9%87%8D%E8%A3%85.html">重装</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/About.html">关于我</a>
+                        </li> 
+                        <li><a href="/feeds/all.atom.xml">Atom</a></li>
+                        <li><a href="/feeds/all.rss.xml">RSS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+
+                <!-- Main column -->
+                <div id="content" class="col-md-12">
+
+
+
+
+
+                    <article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>记一次Caffe的安装</h1>
+                    <p class='date-and-tags'>
+<time datetime="2017-04-25" pubdate="true">2017-04-25</time> :: <span class="tags"><a href="/tags/caffe.html">caffe</a>, <a href="/tags/cudnn.html">cudnn</a></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+<p> 运河杯需要所以要安装Caffe框架用于图像识别,记录一下遇到的坑</p>
+<!-- more-->
+
+<p>基本都是按照Caffe的github上面的wiki安装下来的,挺顺利的除了Cudnn。 用的Ubuntu16.04 Lts 显卡是GeForce 820M(N多年前的卡了,机器学习真的贵)和一张集显.</p>
+
+<h2 id="cuda">Cuda</h2>
+
+<p>cuda直接从NVIDIA下载对应的deb包(我用的在线安装板),这里面的包好像包括了N卡的驱动.  第一遍装的时候cuda直接把原来的Nvidia驱动覆盖了,装的Cuda8.0貌似自带的375驱动.  出现了的问题是当切换到N卡的时候开机会显示Low graphic mode,要么是开机循环登录</p>
+
+<h3 id="解决办法">解决办法</h3>
+
+<p>对于Low graphic Mode,按下<code>Ctrl</code>+<code>Alt</code>+<code>F1~F6</code> 登录一下,使用  <code>shell
+   sudo prime-select intel</code>  这个只是切换到了N卡,每次关机之前还是要记得切回Intel(蛋疼无比)  最终解决办法是卸载掉全部的N卡驱动 Cuda 然后重装cuda(不挂代理,国内访问下载也挺快的)</p>
+
+<h2 id="opencv">opencv</h2>
+
+<p>我安装的时候挺顺利的没什么大问题</p>
+
+<h2 id="cudnn">cudnn</h2>
+
+<p>cudnn可以大幅度加速计算速度(那么棒,那当然上上上),无论我换Cudnn6.0还是5.1在caffe开始计算的时候都显示我的Cudnn出了问题  <code>text
+   Check failed: status == CUDNN_STATUS_SUCCESS (6 vs. 0) CUDNN_STATUS_ARCH_MISMATCH</code>  查了一下是我的显卡问题不支持cudnn, 因为笔记本上的显卡的CUDA Capability是2.1,而官方的cudnn加速是不支持3.0以下的版本的，因此只能在Makefile.config中注释掉USE_CUDNN这行,重新make一下caffe</p>
+
+<h2 id="caffe">caffe</h2>
+
+<p>没遇到问题。</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <script type="text/javascript">
+          !function(d,s,id){
+              var js,fjs=d.getElementsByTagName(s)[0];
+              if(!d.getElementById(id)){
+                  js=d.createElement(s);
+                  js.id=id;
+                  js.src="//platform.twitter.com/widgets.js";
+                  fjs.parentNode.insertBefore(js,fjs);
+              }
+          }(document,"script","twitter-wjs");
+        </script>
+        <a href="https://twitter.com/share"
+           class="twitter-share-button"
+           data-url="http://www.example.com/2017/04/%E8%AE%B0%E4%B8%80%E6%AC%A1caffe%E7%9A%84%E5%AE%89%E8%A3%85.html"
+           data-dnt="true">
+          "Tweet"</a>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <g:plusone size="medium" href="http://www.example.com/2017/04/%E8%AE%B0%E4%B8%80%E6%AC%A1caffe%E7%9A%84%E5%AE%89%E8%A3%85.html"></g:plusone>
+        <script type="text/javascript">
+          var disqus_shortname = 'shortname';
+          (function() {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript';
+              dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <div id="disqus_thread"></div>
+        <ul class="pager">
+
+        <li class="next">
+          <a href="/2016/10/raspberry-pi-timer.html"><em>raspberry pi timer</em> &rarr;</a>
+        </li>
+        </ul>
+    </footer>
+</article>
+                </div>
+            </div>
+            <footer>
+                <hr />
+                <p>由<a href="https://github.com/greghendershott/frog">Frog</a>强力驱动,
+                the <strong>fr</strong>ozen bl<strong>og</strong> tool.</p>
+                <p><em>Program is just another name of the lost art of thinking</em>.</p>
+            </footer>
+        </div>
+        <!-- </body> JS -->
+        <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        </body>
+</html>

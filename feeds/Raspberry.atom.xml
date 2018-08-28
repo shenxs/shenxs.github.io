@@ -1,40 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ 的牢骚: Posts tagged 'Raspberry'</title>
- <link rel="self" href="http://shenxs.github.io/feeds/Raspberry.atom.xml" />
- <link href="http://shenxs.github.io/tags/Raspberry.html" />
- <id>urn:http-shenxs-github-io:-tags-Raspberry-html</id>
+ <title type="text">My Blog: Posts tagged 'Raspberry'</title>
+ <link rel="self" href="http://www.example.com/feeds/Raspberry.atom.xml" />
+ <link href="http://www.example.com/tags/Raspberry.html" />
+ <id>urn:http-www-example-com:-tags-Raspberry-html</id>
  <updated>2016-10-07T15:10:58Z</updated>
  <entry>
   <title type="text">raspberry pi timer</title>
-  <link rel="alternate" href="http://shenxs.github.io/blog/2016/10/07/raspberry-pi-timer/?utm_source=Raspberry&amp;utm_medium=Atom" />
-  <id>urn:http-shenxs-github-io:-blog-2016-10-07-raspberry-pi-timer</id>
+  <link rel="alternate" href="http://www.example.com/2016/10/raspberry-pi-timer.html?utm_source=Raspberry&amp;utm_medium=Atom" />
+  <id>urn:http-www-example-com:-2016-10-raspberry-pi-timer-html</id>
   <published>2016-10-07T15:10:58Z</published>
   <updated>2016-10-07T15:10:58Z</updated>
   <author>
-   <name>Mr.λ</name></author>
+   <name>The Unknown Author</name></author>
   <content type="html">
-&lt;p&gt;树莓派的计时器&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;pre&gt;&lt;code&gt;    与Gpio控制器类似,计时器也有一个地址.在这里计时器的地址是20003000(十六进制).
-树莓派没有板载的电源所以不加电的时候时间就不准.因此我们只能依靠这个计时器来计时.
-计时器本身有64位,与其搭配的还有32位的控制字,4个32位的比较寄存器.计时器是只读的.
-    计时器每一μs加1.每次加完都会将低32位与比较寄存器比较.如果和任何一个匹配上了,
-就根据所匹配的寄存器对控制/或者叫状态寄存器进行更新.&lt;/code&gt;&lt;/pre&gt;</content></entry>
+&lt;p&gt;树莓派的计时器&lt;/p&gt;&lt;a href="http://www.example.com/2016/10/raspberry-pi-timer.html?utm_source=Raspberry&amp;amp;utm_medium=Atom"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</content></entry>
  <entry>
   <title type="text">Raspberry Pi GPIO</title>
-  <link rel="alternate" href="http://shenxs.github.io/blog/2016/10/06/raspberry-pi-gpio/?utm_source=Raspberry&amp;utm_medium=Atom" />
-  <id>urn:http-shenxs-github-io:-blog-2016-10-06-raspberry-pi-gpio</id>
+  <link rel="alternate" href="http://www.example.com/2016/10/raspberry-pi-gpio.html?utm_source=Raspberry&amp;utm_medium=Atom" />
+  <id>urn:http-www-example-com:-2016-10-raspberry-pi-gpio-html</id>
   <published>2016-10-06T13:30:40Z</published>
   <updated>2016-10-06T13:30:40Z</updated>
   <author>
-   <name>Mr.λ</name></author>
+   <name>The Unknown Author</name></author>
   <content type="html">
-&lt;p&gt;树莓派的GPIO,摘自《BCM2835 ARM Peripherals》&lt;/p&gt;
-&lt;!-- more--&gt;
-
-&lt;pre&gt;&lt;code&gt;一共有54个通用的I/O线,分成两组.在BCM上所有的pin至少有两个可选的函数.
-可选函数通常是一个外围的io线和另一条独立的线用于控制io的电压.电压控制的线路可能出现在任意一组控制线.
-GPIO有三条专用控制线,这些线通过专用的状态寄存器触发.
-GPIO有41个寄存器,所有的寄存器都可以认为是32位的.&lt;/code&gt;&lt;/pre&gt;</content></entry></feed>
+&lt;p&gt;树莓派的GPIO,摘自《BCM2835 ARM Peripherals》&lt;/p&gt;&lt;a href="http://www.example.com/2016/10/raspberry-pi-gpio.html?utm_source=Raspberry&amp;amp;utm_medium=Atom"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</content></entry></feed>

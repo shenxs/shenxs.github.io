@@ -1,93 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <rss version="2.0">
  <channel>
-  <title>Mr.λ 的牢骚: Posts tagged '斜体'</title>
-  <description>Mr.λ 的牢骚: Posts tagged '斜体'</description>
-  <link>http://shenxs.github.io/tags/斜体.html</link>
+  <title>My Blog: Posts tagged '斜体'</title>
+  <description>My Blog: Posts tagged '斜体'</description>
+  <link>http://www.example.com/tags/%E6%96%9C%E4%BD%93.html</link>
   <lastBuildDate>Sat, 16 Jul 2016 16:13:17 UT</lastBuildDate>
   <pubDate>Sat, 16 Jul 2016 16:13:17 UT</pubDate>
   <ttl>1800</ttl>
   <item>
    <title>vim italic</title>
-   <link>http://shenxs.github.io/blog/2016/07/17/vim-italic/?utm_source=斜体&amp;utm_medium=RSS</link>
-   <guid isPermaLink="false">urn:http-shenxs-github-io:-blog-2016-07-17-vim-italic</guid>
+   <link>http://www.example.com/2016/07/vim-italic.html?utm_source=%E6%96%9C%E4%BD%93&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-www-example-com:-2016-07-vim-italic-html</guid>
    <pubDate>Sat, 16 Jul 2016 16:13:17 UT</pubDate>
-   <author>Mr.λ</author>
+   <author>The Unknown Author</author>
    <description>
 &lt;div class="figure"&gt;&lt;img src="/img/vim-italic.png" alt="vim-italic" /&gt;
- &lt;p class="caption"&gt;vim-italic&lt;/p&gt;&lt;/div&gt;
-&lt;!-- more--&gt;
-
-&lt;p&gt;首先,你需要确保你的终端支持斜体显示,在终端输入&lt;/p&gt;
-
-&lt;div class="brush: bash"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s2"&gt;"\e[3m foo \e[23m"&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;如果你看到了斜体的*foo*就可以了,不然的话就意味着你需要换终端了(我用的是gnome terminal)&lt;/p&gt;
-
-&lt;p&gt;然后你需要帮助vim知道你使用的终端类型,在你的&lt;code&gt;~/.bashrc&lt;/code&gt;中加入&lt;/p&gt;
-
-&lt;div class="brush: bash"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;TERM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"xterm-256color"&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;现在看看是否可以正常显示斜体了,打开一个新文件&lt;code&gt;vim foo.html&lt;/code&gt;,输入以下内容 &lt;code&gt;&amp;lt;i&amp;gt;foo&amp;lt;/i&amp;gt;&lt;/code&gt; 你看到了斜体的&lt;code&gt;foo&lt;/code&gt;了吗?如果没有那么继续(我也没有),在你得&lt;code&gt;~/.vimrc&lt;/code&gt;中加入下面内容&lt;/p&gt;
-
-&lt;div class="brush: bash"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;t_ZH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;^&lt;span class="o"&gt;[[&lt;/span&gt;3m
-&lt;span class="nb"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;t_ZR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;^&lt;span class="o"&gt;[[&lt;/span&gt;23m
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; &lt;code&gt;^[&lt;/code&gt;不是两个分开的字符,这是一个整体代表&lt;code&gt;ESC&lt;/code&gt;键,&lt;code&gt;CTRL+V+ESC&lt;/code&gt;就可以打出来了(在vim中)&lt;/p&gt;
-
-&lt;p&gt;ok 你现在再打开&lt;code&gt;foo.html&lt;/code&gt;就应该可以看到斜体的*foo*了&lt;/p&gt;
-
-&lt;p&gt;如果你希望将你的注释都设置为斜体,在&lt;code&gt;~/.vimrc&lt;/code&gt;中加入以下内容 要在颜色设置的后面&lt;/p&gt;
-
-&lt;div class="brush: bash"&gt;
- &lt;table class="sourcetable"&gt;
-  &lt;tbody&gt;
-   &lt;tr&gt;
-    &lt;td class="linenos"&gt;
-     &lt;div class="linenodiv"&gt;
-      &lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;
-    &lt;td class="code"&gt;
-     &lt;div class="source"&gt;
-      &lt;pre&gt;&lt;span&gt;&lt;/span&gt;highlight Comment &lt;span class="nv"&gt;cterm&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;italic
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-&lt;/div&gt;
-
-&lt;p&gt;ok,so nice :)&lt;/p&gt;</description></item></channel></rss>
+ &lt;p class="caption"&gt;vim-italic&lt;/p&gt;&lt;/div&gt;&lt;a href="http://www.example.com/2016/07/vim-italic.html?utm_source=%E6%96%9C%E4%BD%93&amp;amp;utm_medium=RSS"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</description></item></channel></rss>

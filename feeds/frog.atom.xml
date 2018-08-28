@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?> 
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
- <title type="text">Mr.λ 的牢骚: Posts tagged 'frog'</title>
- <link rel="self" href="http://shenxs.github.io/feeds/frog.atom.xml" />
- <link href="http://shenxs.github.io/tags/frog.html" />
- <id>urn:http-shenxs-github-io:-tags-frog-html</id>
+ <title type="text">My Blog: Posts tagged 'frog'</title>
+ <link rel="self" href="http://www.example.com/feeds/frog.atom.xml" />
+ <link href="http://www.example.com/tags/frog.html" />
+ <id>urn:http-www-example-com:-tags-frog-html</id>
  <updated>2016-07-16T15:56:02Z</updated>
  <entry>
   <title type="text">测试中文字符</title>
-  <link rel="alternate" href="http://shenxs.github.io/blog/2016/07/16/测试中文字符/?utm_source=frog&amp;utm_medium=Atom" />
-  <id>urn:http-shenxs-github-io:-blog-2016-07-16-测试中文字符</id>
+  <link rel="alternate" href="http://www.example.com/2016/07/%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6.html?utm_source=frog&amp;utm_medium=Atom" />
+  <id>urn:http-www-example-com:-2016-07-E6-B5-8B-E8-AF-95-E4-B8-AD-E6-96-87-E5-AD-97-E7-AC-A6-html</id>
   <published>2016-07-16T15:56:02Z</published>
   <updated>2016-07-16T15:56:02Z</updated>
   <author>
-   <name>Mr.λ</name></author>
+   <name>The Unknown Author</name></author>
   <content type="html">
-&lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;
-&lt;!-- more--&gt;</content></entry></feed>
+&lt;p&gt;&lt;em&gt;Replace this with your post text. Add one or more comma-separated Tags above. The special tag &lt;code&gt;DRAFT&lt;/code&gt; will prevent the post from being published.&lt;/em&gt;&lt;/p&gt;&lt;a href="http://www.example.com/2016/07/%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%E5%AD%97%E7%AC%A6.html?utm_source=frog&amp;amp;utm_medium=Atom"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</content></entry></feed>
