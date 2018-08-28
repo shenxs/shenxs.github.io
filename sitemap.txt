@@ -10,5 +10,6 @@ http://www.example.com/2016/07/racket-ffi-2.html
 http://www.example.com/2016/07/vim-italic.html
 http://www.example.com/2016/07/the-difference-between-data-and-function.html
 http://www.example.com/2017/04/%E8%AE%B0%E4%B8%80%E6%AC%A1caffe%E7%9A%84%E5%AE%89%E8%A3%85.html
+http://www.example.com/2018/08/%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1.html
 http://www.example.com/2016/10/raspberry-pi-timer.html
 http://www.example.com/About.html

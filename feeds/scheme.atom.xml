@@ -4,7 +4,17 @@
  <link rel="self" href="http://www.example.com/feeds/scheme.atom.xml" />
  <link href="http://www.example.com/tags/scheme.html" />
  <id>urn:http-www-example-com:-tags-scheme-html</id>
- <updated>2016-07-17T09:05:26Z</updated>
+ <updated>2018-08-28T06:16:32Z</updated>
+ <entry>
+  <title type="text">操作对象</title>
+  <link rel="alternate" href="http://www.example.com/2018/08/%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1.html?utm_source=scheme&amp;utm_medium=Atom" />
+  <id>urn:http-www-example-com:-2018-08-E6-93-8D-E4-BD-9C-E5-AF-B9-E8-B1-A1-html</id>
+  <published>2018-08-28T06:16:32Z</published>
+  <updated>2018-08-28T06:16:32Z</updated>
+  <author>
+   <name>The Unknown Author</name></author>
+  <content type="html">
+&lt;p&gt;&amp;#20171;&amp;#32461;&amp;#19968;&amp;#20123;&amp;#23545;&amp;#35937;&amp;#19978;&amp;#30340;&amp;#25805;&amp;#20316;,&amp;#21253;&amp;#25324;lists, numbers, characters, strings, vectors, bytevectors, symbols, booleans, hashtables, &amp;#20197;&amp;#21450; enumerations&lt;/p&gt;&lt;a href="http://www.example.com/2018/08/%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1.html?utm_source=scheme&amp;amp;utm_medium=Atom"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</content></entry>
  <entry>
   <title type="text">The difference between data and function</title>
   <link rel="alternate" href="http://www.example.com/2016/07/the-difference-between-data-and-function.html?utm_source=scheme&amp;utm_medium=Atom" />

@@ -4,9 +4,17 @@
   <title>My Blog: Posts tagged 'scheme'</title>
   <description>My Blog: Posts tagged 'scheme'</description>
   <link>http://www.example.com/tags/scheme.html</link>
-  <lastBuildDate>Sun, 17 Jul 2016 09:05:26 UT</lastBuildDate>
-  <pubDate>Sun, 17 Jul 2016 09:05:26 UT</pubDate>
+  <lastBuildDate>Tue, 28 Aug 2018 06:16:32 UT</lastBuildDate>
+  <pubDate>Tue, 28 Aug 2018 06:16:32 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>操作对象</title>
+   <link>http://www.example.com/2018/08/%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1.html?utm_source=scheme&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:http-www-example-com:-2018-08-E6-93-8D-E4-BD-9C-E5-AF-B9-E8-B1-A1-html</guid>
+   <pubDate>Tue, 28 Aug 2018 06:16:32 UT</pubDate>
+   <author>The Unknown Author</author>
+   <description>
+&lt;p&gt;&amp;#20171;&amp;#32461;&amp;#19968;&amp;#20123;&amp;#23545;&amp;#35937;&amp;#19978;&amp;#30340;&amp;#25805;&amp;#20316;,&amp;#21253;&amp;#25324;lists, numbers, characters, strings, vectors, bytevectors, symbols, booleans, hashtables, &amp;#20197;&amp;#21450; enumerations&lt;/p&gt;&lt;a href="http://www.example.com/2018/08/%E6%93%8D%E4%BD%9C%E5%AF%B9%E8%B1%A1.html?utm_source=scheme&amp;amp;utm_medium=RSS"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</description></item>
   <item>
    <title>The difference between data and function</title>
    <link>http://www.example.com/2016/07/the-difference-between-data-and-function.html?utm_source=scheme&amp;utm_medium=RSS</link>

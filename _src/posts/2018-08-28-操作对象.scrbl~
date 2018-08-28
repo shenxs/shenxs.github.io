@@ -1,0 +1,69 @@
+#lang scribble/manual
+
+Title: 操作对象
+Date: 2018-08-28T14:16:32
+Tags: scheme
+
+@(require (for-label racket))
+@(require scribble/eval)
+
+@(define (cpt b text)
+    @list{@bold[b] : @italic[text] })
+@(define (stx text)
+   @cpt["语法" text])
+@(define (rtn text)
+   @cpt["返回" text])
+
+介绍一些对象上的操作,包括lists, numbers, characters, strings, vectors, bytevectors, symbols, booleans, hashtables, 以及 enumerations
+
+<!-- more -->
+
+
+@section[#:style 'unnumbered]{常量和引用}
+
+@stx{constant}
+
+@rtn{constant}
+
+@italic{constant} 是可以自我解释的一些常量,例如数字,布尔值,字符,字符串或者二进制向量.常量是不可改变的
+
+@interaction[
+    3.2
+    #f
+    #\c
+    "hi"
+    #(3 4 5)
+]
+
+
+@stx{(quote obj)}
+
+@stx{ }@racket['obj]
+
+@rtn{obj}
+
+@italic{@racket['obj]} 是等价于@racket{(quote obj)}的。这种缩写会被scheme的reader自动转换为更长的形式。
+
+@smaller{qoute} 禁止对于普通的@italic{obj}进行解析，这使得@italic{obj}可以像数据一样被使用。尽管所有的scheme的对象都可以被引用，但是对于常量的引用是没有必要的。比如，数字，布尔值，字符，字符串以及二进制向量。
+
+被引用和自解析的常量是不可以被修改的。也就是说不可以通过@racket{set-car!},@racket{string-set!}之类的操作修改一个常量。scheme的实现需要保证在这种操作试图运行的时候抛出异常。如果这种对于不可修改的常量的修改没有被侦测到，那么其后果是不确定的。scheme的实现可以在不同的常量之间共用存储来节省空间。
+
+@interaction[
+  (+ 2 3)
+  '(+ 2 3)
+  (quote (+ 1 2))
+  'a
+  'cons
+  '()
+  '7
+]
+
+@stx{(quasiquote obj ...)}
+
+@stx{ }@racket{`obj}
+
+@stx{(unquote obj ...)}
+
+@stx{,obj}
+
+
